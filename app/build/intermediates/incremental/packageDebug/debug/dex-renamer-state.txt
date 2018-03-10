@@ -1,0 +1,4 @@
+#Sat Mar 10 22:02:13 GMT 2018
+base.0=C\:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
