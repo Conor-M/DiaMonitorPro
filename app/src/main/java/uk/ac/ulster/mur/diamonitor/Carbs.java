@@ -7,9 +7,9 @@ public class Carbs {
     public static final String TABLE = "Carbs";
 
     // Labels Table Columns names
-    public static final String KEY_BloodID = "BloodId";
+    public static final String KEY_BloodID = "CarbsId";
     public static final String KEY_Amount = "Amount";
-    public static final String KEY_time = "time";
+    public static final String KEY_Time = "Time";
 
     // Class Variables for storing DB Columns
     private int ID ;
