@@ -21,10 +21,10 @@ public class DBHelpr extends SQLiteOpenHelper {
         db.execSQL(CarbsRepo.createTable());
         db.execSQL(BloodRepo.createTable());
         db.execSQL(InsulinRepo.createTable());
+        db.execSQL(UserRepo.createTable());
         //db.execSQL(Bloodreading.createTable());
 
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
