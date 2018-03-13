@@ -16,9 +16,9 @@ public class BloodRepo {
 
     public static String createTable(){
         return "CREATE TABLE " + Blood.TABLE  + "("
-                + Blood.KEY_BloodID + " TEXT  PRIMARY KEY, "
+                + Blood.KEY_BloodID + " TEXT  PRIMARY KEY AUTOINCREMENT,  "
                 + Blood.KEY_Reading + " TEXT, "
-                + Blood.KEY_TIME + "TEXT )";
+                + Blood.KEY_TIME + "INT )";
     }
 
     public int insert(Blood blood) {

@@ -21,8 +21,10 @@ public class DBHelpr extends SQLiteOpenHelper {
         db.execSQL(CarbsRepo.createTable());
         db.execSQL(BloodRepo.createTable());
         db.execSQL(InsulinRepo.createTable());
-        //db.execSQL(StudentCourseRepo.createTable());
+        //db.execSQL(Bloodreading.createTable());
+
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -32,7 +34,7 @@ public class DBHelpr extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Carbs.TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Blood.TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Insulin.TABLE);
-        //db.execSQL("DROP TABLE IF EXISTS " + StudentCourse.TABLE);
+        //db.execSQL("DROP TABLE IF EXISTS " + BloodReading.TABLE);
         onCreate(db);
     }
 

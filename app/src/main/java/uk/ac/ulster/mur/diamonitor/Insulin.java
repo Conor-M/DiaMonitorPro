@@ -10,31 +10,16 @@ public class Insulin{
     public static final String KEY_Units = "Units";
     public static final String KEY_TIME = "Time";
 
-    private String insulinId;
+    // Class Variables for storing DB Columns
+    private int insulinId;
     private String units;
-    private String time;
+    private int time;
 
-    public String getUnits() {
-        return units;
-    }
-
-    public void setName(String units) {
-        this.units = units;
-    }
-
-    public String getInsulinId() {
-        return insulinId;
-    }
-
-    public void setInsulinId(String insulinId) {
-        this.insulinId = insulinId;
-    }
-
-    public String getTime() {
-        return insulinId;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
+    public String getUnits(){return units;}
+    public void setUnits(String units){this.units=units;}
+    public void setName(String units) {this.units = units;}
+    public int getInsulinId(){return insulinId;}
+    public void setInsulinId(int insulinId){this.insulinId = insulinId;}
+    public int getTime(){return time;}
+    public void setTime(int time){this.time = time;}
 }

@@ -1,11 +1,7 @@
 package uk.ac.ulster.mur.diamonitor;
 
 import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import uk.ac.ulster.mur.diamonitor.DatabaseManager;
-import uk.ac.ulster.mur.diamonitor.Insulin;
-import java.util.List;
 
 
 public class InsulinRepo {
@@ -19,9 +15,9 @@ public class InsulinRepo {
 
     public static String createTable(){
         return "CREATE TABLE " + Insulin.TABLE  + "("
-                + Insulin.KEY_InsulinId + " TEXT  PRIMARY KEY, "
+                + Insulin.KEY_InsulinId + " TEXT  PRIMARY KEY AUTOINCREMENT "
                 + Insulin.KEY_Units + " TEXT, "
-                + Insulin.KEY_TIME + "TEXT )";
+                + Insulin.KEY_TIME + "INT )";
     }
 
     public int insert(Insulin insulin) {

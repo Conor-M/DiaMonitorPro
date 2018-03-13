@@ -1,4 +1,4 @@
-package uk.ac.ulster.mur.diamonitor;
+package uk.ac.ulster.mur.diamonitor.removed;
 
 
 public class BloodReading {
@@ -9,10 +9,30 @@ public class BloodReading {
     public static final String KEY_BLOODID = "BloodId";
     public static final String KEY_INSULINID = "InsulinId";
     public static final String KEY_READINGID = "ReadingId";
+    public static final String KEY_BLOODCOMM = "BloodComm";
+    public static final String KEY_TIME = "TIME";
 
     private String ID;
     private String bloodId;
     private String insulinId;
+    private String bloodComment;
+    private String Time;
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
+
+    public String getBloodComment() {
+        return bloodComment;
+    }
+
+    public void setBloodComment(String bloodComment) {
+        this.bloodComment = bloodComment;
+    }
 
     public String getReadingId() {
         return ID;

@@ -13,9 +13,9 @@ public class CarbsRepo {
 
     public static String createTable(){
         return "CREATE TABLE " + Carbs.TABLE  + "("
-                + Carbs.KEY_BloodID + " TEXT  PRIMARY KEY, "
+                + Carbs.KEY_BloodID + " TEXT  PRIMARY KEY AUTOINCREMENT, "
                 + Carbs.KEY_Amount + " TEXT, "
-                + Carbs.KEY_time + "TEXT )";
+                + Carbs.KEY_time + "INT )";
     }
 
     public int insert(Blood blood) {
