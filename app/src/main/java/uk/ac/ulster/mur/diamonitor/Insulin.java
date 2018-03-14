@@ -12,14 +12,13 @@ public class Insulin{
 
     // Class Variables for storing DB Columns
     private int insulinId;
-    private String units;
-    private int time;
+    private int units;
+    private long time;
 
-    public String getUnits(){return units;}
-    public void setUnits(String units){this.units=units;}
-    public void setName(String units) {this.units = units;}
+    public int getUnits(){return units;}
+    public void setUnits(int units){this.units=units;}
     public int getInsulinId(){return insulinId;}
     public void setInsulinId(int insulinId){this.insulinId = insulinId;}
-    public int getTime(){return time;}
-    public void setTime(int time){this.time = time;}
+    public long getTime(){return time;}
+    public void setTime(long time){this.time = time;}
 }

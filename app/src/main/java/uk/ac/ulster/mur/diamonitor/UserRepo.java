@@ -1,4 +1,4 @@
-package uk.ac.ulster.mur.diamonitor;
+/*package uk.ac.ulster.mur.diamonitor;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,7 +21,7 @@ public class UserRepo {
 
     public int insert(User user) {
         int userId;
-        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        SQLiteDatabase db =
         ContentValues values = new ContentValues();
         values.put(User.KEY_CarbRatio, user.getCarbRatio());
         values.put(User.KEY_CorrectionRatio, user.getCorrectionRatio());
@@ -41,3 +41,4 @@ public class UserRepo {
         DatabaseManager.getInstance().closeDatabase();
     }
 }
+*/

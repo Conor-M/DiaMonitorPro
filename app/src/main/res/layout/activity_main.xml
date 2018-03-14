@@ -1,18 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="uk.ac.ulster.mur.diamonitor.MainActivity">
+    android:id="@+id/GridLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="3"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="70dp"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btnCarb"
+        android:layout_height="85dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="0"
+        android:text="Carbs" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btnInsulin"
+        android:layout_height="85dp"
+        android:layout_column="1"
+        android:layout_gravity="left|top"
+        android:layout_row="0"
+        android:text="Insulin" />
+
+    <Button
+        android:id="@+id/btnViewReadings"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_column="2"
+        android:layout_gravity="fill_vertical"
+        android:layout_row="0"
+        android:layout_rowSpan="2"
+        android:text="View Readings" />
+
+    <Button
+        android:id="@+id/btnBloodReading"
+        android:layout_height="85dp"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="1"
+        android:text="Blood Reading" />
+
+    <Button
+        android:id="@+id/btnUserSet"
+        android:layout_height="60dp"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="3"
+        android:text="User Settings" />
+
+    <Button
+        android:id="@+id/btnAnalyseBloodReadings"
+        android:layout_height="120dp"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="2"
+        android:text="Analyse Blood Readings" />
+
+</GridLayout>

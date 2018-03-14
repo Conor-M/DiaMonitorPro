@@ -15,10 +15,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.AndroidDatabaseManager"
-            android:label="@string/app_name" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="uk.ac.ulster.mur.diamonitor.AddBlood" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.AddInsulin" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.AddCarbs" />
 
         <meta-data
             android:name="android.support.VERSION"

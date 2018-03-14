@@ -1,7 +1,9 @@
-package uk.ac.ulster.mur.diamonitor;
+/*package uk.ac.ulster.mur.diamonitor;
 
 import android.app.Application;
 import android.content.Context;
+
+import uk.ac.ulster.mur.diamonitor.removed.DBHelpr;
 
 
 public class App extends Application {
@@ -14,8 +16,6 @@ public class App extends Application {
         super.onCreate();
         context = this.getApplicationContext();
         dbHelpr = new DBHelpr();
-        DatabaseManager.initializeInstance(dbHelpr);
-
     }
 
 
@@ -25,3 +25,4 @@ public class App extends Application {
 
 }
 
+*/

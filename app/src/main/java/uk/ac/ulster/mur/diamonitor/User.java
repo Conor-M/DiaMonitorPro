@@ -18,45 +18,25 @@ public class User {
     private float maxRange;
     private int firstRun;
 
-    public int getCarbRatio() {
-        return carbRatio;
-    }
+    public int getCarbRatio() {return carbRatio;}
 
-    public void setCarbRatio(int carbRatio) {
-        this.carbRatio = carbRatio;
-    }
+    public void setCarbRatio(int carbRatio) {this.carbRatio = carbRatio;}
 
-    public int getCorrectionRatio() {
-        return correctionRatio;
-    }
+    public int getCorrectionRatio() {return correctionRatio;}
 
-    public void setCorrectionRatio(int correctionRatio) {
-        this.correctionRatio = correctionRatio;
-    }
+    public void setCorrectionRatio(int correctionRatio) {this.correctionRatio = correctionRatio;}
 
-    public float getMinRange() {
-        return minRange;
-    }
+    public float getMinRange() {return minRange;}
 
-    public void setMinRange(float minRange) {
-        this.minRange = minRange;
-    }
+    public void setMinRange(float minRange) {this.minRange = minRange;}
 
-    public float getMaxRange() {
-        return maxRange;
-    }
+    public float getMaxRange() {return maxRange;}
 
-    public void setMaxRange(float maxRange) {
-        this.maxRange = maxRange;
-    }
+    public void setMaxRange(float maxRange) {this.maxRange = maxRange;}
 
-    public int getFirstRun() {
-        return firstRun;
-    }
+    public int getFirstRun() {return firstRun;}
 
-    public void setFirstRun(int firstRun) {
-        this.firstRun = firstRun;
-    }
+    public void setFirstRun(int firstRun) {this.firstRun = firstRun;}
 
 }
 
