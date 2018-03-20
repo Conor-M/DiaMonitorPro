@@ -16,9 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddBlood"></activity>
-        <activity android:name=".AddInsulin"></activity>
-        <activity android:name=".AddCarbs"></activity>
+        <activity android:name=".AddBlood" />
+        <activity android:name=".AddInsulin" />
+        <activity android:name=".AddCarbs" />
+        <activity android:name=".UserSettings" />
+        <activity android:name=".ViewBloodReadings" />
+        <activity android:name=".ViewInsulinMeasures" />
+        <activity android:name=".ViewCarbRecords" />
+        <activity android:name=".ViewType"></activity>
     </application>
 
 </manifest>

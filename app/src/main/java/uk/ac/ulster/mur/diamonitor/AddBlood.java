@@ -1,9 +1,11 @@
 package uk.ac.ulster.mur.diamonitor;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,8 +21,8 @@ public class AddBlood extends FragmentActivity {
     private Button mButton;
     private Date recordingDate = null;
     private long recordingTime = 0;
-    MyDBHandler dbHandler;
-    EditText bloodReadingET;
+    private MyDBHandler dbHandler;
+    private EditText bloodReadingET;
 
 
 
@@ -52,9 +54,9 @@ public class AddBlood extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbHandler = new MyDBHandler(this, null, null, 1);
         setContentView(R.layout.activity_add_blood);
-        bloodReadingET = (EditText) findViewById(R.id.BloodReadingEditText);
+        dbHandler = new MyDBHandler(this, null, null, 1);
+        bloodReadingET = findViewById(R.id.BloodReadingEditText);
         /*mButton = (Button) findViewById(R.id);
         mButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -78,7 +80,7 @@ public class AddBlood extends FragmentActivity {
 
     public void addButtonClicked(View view){
 
-        EditText et3 = (EditText) findViewById(R.id.editText3);
+        EditText et3 = findViewById(R.id.editText3);
         Blood blood = new Blood();
         blood.setReading(Float.valueOf(bloodReadingET.getText().toString()));
         blood.setTime(System.currentTimeMillis());
@@ -86,7 +88,12 @@ public class AddBlood extends FragmentActivity {
         bloodReadingET.setText("");
         et3.setText(dbHandler.bloodDatabaseToString());
         Toast.makeText(AddBlood.this,
-                "This is DB ADDED" + dbHandler.StingEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
+                "Blood Reading added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     public void HomeButtonClicked(View view){

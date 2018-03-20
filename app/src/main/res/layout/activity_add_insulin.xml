@@ -2,16 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    <Button
-        android:id="@+id/btnHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimary"
-        android:onClick="HomeButtonClicked"
-        android:text="Back To Main"
-        android:textColor="@android:color/background_light" />
+
 
     <EditText
         android:id="@+id/InsulinReadingEditText"
@@ -30,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:onClick="addButtonClicked"
         android:text="Record Units Injected" />
 
@@ -41,5 +33,16 @@
         android:layout_below="@+id/button"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:onClick="HomeButtonClicked"
+        android:text="Back To Main"
+        android:textColor="@android:color/background_light" />
 
 </RelativeLayout>

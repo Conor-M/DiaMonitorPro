@@ -7,11 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MyDBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
-    private static final String DATABASE_NAME = "diamonitor.db";
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "diamonitor1.db";
 
 
     @Override
@@ -25,34 +26,95 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(createBloodsTable());
         db.execSQL(createInsulinTable());
         db.execSQL(createUserTable());
+        // insertDefaultUser();
+    }
+    private String[] mAllUserColumns = { User.KEY_USERID, User.KEY_DEFAULTSET, User.KEY_MinRange, User.KEY_MaxRange, User.KEY_CorrectionRatio, User.KEY_CarbRatio };
+
+    public User getUser() {
+        int id = 0;
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.query(User.TABLE, mAllUserColumns,
+                User.KEY_USERID + " = 0",
+                new String[] { String.valueOf(id) }, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        User user = cursorToUser(cursor);
+        return user;
+    }
+
+    protected User cursorToUser(Cursor cursor) {
+        User user = new User();
+        user.setUserID(cursor.getInt(0));
+        user.setMinRange(cursor.getFloat(1));
+        user.setMaxRange(cursor.getFloat(2));
+        user.setCarbRatio(cursor.getInt(3));
+        user.setCorrectionRatio(cursor.getInt(4));
+        return user;
+    }
+
+    public boolean isUserTableEmpty(){
+
+        SQLiteDatabase db = getWritableDatabase();
+        String count = "SELECT count(*) FROM " + User.TABLE;
+        Cursor mcursor = db.rawQuery(count, null);
+        mcursor.moveToFirst();
+        int icount = mcursor.getInt(0);
+        if(icount>0){
+            return false;
+        }else{
+            insertDefaultUser();
+            return true;
+        }
     }
 
     public static String createUserTable(){
         return "CREATE TABLE " + User.TABLE  + "("
-                + User.KEY_CarbRatio + " INTEGER,"
+                + User.KEY_USERID + " INTEGER PRIMARY KEY,"
+                + User.KEY_CarbRatio + " INTEGER, "
                 + User.KEY_CorrectionRatio + " INTEGER, "
                 + User.KEY_MaxRange + " FLOAT, "
                 + User.KEY_MinRange + " FLOAT, "
-                + User.KEY_FirstRun + " INTEGER )";
+                + User.KEY_DEFAULTSET + " INTEGER )";
     }
 
     public void editUser(User user) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
+        deleteUser();
+        values.put(User.KEY_USERID, 0);
         values.put(User.KEY_CarbRatio, user.getCarbRatio());
         values.put(User.KEY_CorrectionRatio, user.getCorrectionRatio());
         values.put(User.KEY_MinRange, user.getMinRange());
         values.put(User.KEY_MaxRange, user.getMaxRange());
-        values.put(User.KEY_FirstRun, 0);
+        values.put(User.KEY_DEFAULTSET, 0);
+
+        // Inserting Row
+        db.insert(User.TABLE, null, values);
+        db.close();
+    }
+    public void insertDefaultUser() {
+
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(User.KEY_USERID, 0);
+        values.put(User.KEY_CarbRatio, 5);
+        values.put(User.KEY_CorrectionRatio, 2);
+        values.put(User.KEY_MaxRange, 9.5);
+        values.put(User.KEY_MinRange, 4.5);
+        values.put(User.KEY_DEFAULTSET, 1);
 
         // Inserting Row
         db.insert(User.TABLE, null, values);
         db.close();
     }
 
-
-
-
+    public void deleteUser( ) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(User.TABLE,User.KEY_USERID + "=",new String[]{"0"});
+        db.close();
+    }
 
 
     @Override
@@ -61,6 +123,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Carbs.TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Blood.TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Insulin.TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + User.TABLE);
         onCreate(db);
     }
 
@@ -68,18 +131,38 @@ public class MyDBHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
-
     public static String createInsulinTable(){
         return "CREATE TABLE " + Insulin.TABLE  + "("
-                + Insulin.KEY_InsulinId + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + Insulin.KEY_Units + " INTEGER, "
+                + Insulin.KEY_INSULINID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + Insulin.KEY_UNITS + " INTEGER, "
                 + Insulin.KEY_TIME + " LONG )";
+    }
+    public static String createBloodsTable(){
+        return "CREATE TABLE " + Blood.TABLE  + "("
+                + Blood.KEY_BLOODID + " INTEGER PRIMARY KEY AUTOINCREMENT,  "
+                + Blood.KEY_READING + " FLOAT, "
+                + Blood.KEY_TIME + " LONG )";
+    }
+    public static String createCarbsTable(){
+        return "CREATE TABLE " + Carbs.TABLE  + "("
+                + Carbs.KEY_CARBSID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + Carbs.KEY_AMOUNT + " INTEGER, "
+                + Carbs.KEY_TIME + " LONG )";
+    }
+
+    public void addCarbs(Carbs carbs) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Carbs.KEY_AMOUNT, carbs.getAmount());
+        values.put(Carbs.KEY_TIME, carbs.getTime());
+        // Inserting Row
+        db.insert(Carbs.TABLE, null, values);
+        db.close();
     }
     public void addInsulin(Insulin insulin) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Insulin.KEY_InsulinId, insulin.getInsulinId());
-        values.put(Insulin.KEY_Units, insulin.getUnits());
+        values.put(Insulin.KEY_UNITS, insulin.getUnits());
         values.put(Insulin.KEY_TIME, insulin.getTime());
 
         // Inserting Row
@@ -106,36 +189,19 @@ public class MyDBHandler extends SQLiteOpenHelper {
         //Position after the last row means the end of the results
         while (!recordSet.isAfterLast()) {
             // null could happen if we used our empty constructor
-            if (recordSet.getString(recordSet.getColumnIndex("Units")) != null) {
+            if (recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_UNITS)) != null) {
                 dbString += "||";
-                dbString += recordSet.getString(recordSet.getColumnIndex("InsulinId"));
+                dbString += recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_INSULINID));
                 dbString += "||";
-                dbString += recordSet.getString(recordSet.getColumnIndex("Units"));
+                dbString += recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_UNITS));
                 dbString += "||";
-                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex("Time")));
+                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_TIME)));
                 dbString += "||\n";
             }
             recordSet.moveToNext();
         }
         db.close();
         return dbString;
-    }
-
-    public static String createCarbsTable(){
-        return "CREATE TABLE " + Carbs.TABLE  + "("
-                + Carbs.KEY_CarbsID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + Carbs.KEY_Amount + " INTEGER, "
-                + Carbs.KEY_Time + " LONG )";
-    }
-
-    public void addCarbs(Carbs carbs) {
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(Carbs.KEY_Amount, carbs.getAmount());
-        values.put(Carbs.KEY_Time, carbs.getTime());
-        // Inserting Row
-        db.insert(Carbs.TABLE, null, values);
-        db.close();
     }
 
     public void deleteCarbs( ) {
@@ -157,13 +223,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
         //Position after the last row means the end of the results
         while (!recordSet.isAfterLast()) {
             // null could happen if we used our empty constructor
-            if (recordSet.getString(recordSet.getColumnIndex("Amount")) != null) {
+            if (recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_AMOUNT)) != null) {
                 dbString += "||";
-                dbString += recordSet.getString(recordSet.getColumnIndex("CarbsId"));
+                dbString += recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_CARBSID));
                 dbString += "||";
-                dbString += recordSet.getString(recordSet.getColumnIndex("Amount"));
+                dbString += recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_AMOUNT));
                 dbString += "||";
-                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex("Time")));
+                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_TIME)));
                 dbString += "||\n";
             }
             recordSet.moveToNext();
@@ -172,17 +238,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return dbString;
     }
 
-    public static String createBloodsTable(){
-        return "CREATE TABLE " + Blood.TABLE  + "("
-                + Blood.KEY_BloodID + " INTEGER PRIMARY KEY AUTOINCREMENT,  "
-                + Blood.KEY_Reading + " FLOAT, "
-                + Blood.KEY_TIME + " LONG )";
-    }
+
 
     public void addBlood(Blood blood) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Blood.KEY_Reading, blood.getReading());
+        values.put(Blood.KEY_READING, blood.getReading());
         values.put(Blood.KEY_TIME, blood.getTime());
 
         // Inserting Row
@@ -210,13 +271,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
         //Position after the last row means the end of the results
         while (!recordSet.isAfterLast()) {
             // null could happen if we used our empty constructor
-            if (recordSet.getString(recordSet.getColumnIndex("Reading")) != null) {
+            if (recordSet.getString(recordSet.getColumnIndex(Blood.KEY_READING)) != null) {
                 dbString += "||";
-                dbString += recordSet.getString(recordSet.getColumnIndex("BloodId"));
+                dbString += recordSet.getString(recordSet.getColumnIndex(Blood.KEY_BLOODID));
                 dbString += "||";
-                dbString += recordSet.getString(recordSet.getColumnIndex("Reading"));
+                dbString += recordSet.getString(recordSet.getColumnIndex(Blood.KEY_READING));
                 dbString += "||";
-                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex("Time")));
+                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Blood.KEY_TIME)));
                 dbString += "||\n";
             }
             recordSet.moveToNext();
@@ -224,11 +285,83 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return dbString;
     }
+    public ArrayList<Blood> getAllBlood(){
 
 
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + Blood.TABLE + " WHERE 1";// SELECT ALL
+        //Cursor points to a location in your results
+        Cursor recordSet = db.rawQuery(query, null);
+        //Move to the first row in your results
+        recordSet.moveToFirst();
+        ArrayList<Blood> bloodList = new ArrayList<Blood>();
+        //Position after the last row means the end of the results
+        while (!recordSet.isAfterLast()) {
+            // null could happen if we used our empty constructor
+            if (recordSet.getString(recordSet.getColumnIndex(Blood.KEY_READING)) != null) {
+                Blood blood = new Blood();
+                blood.setBloodId(recordSet.getInt(recordSet.getColumnIndex(Blood.KEY_BLOODID)));
+                blood.setReading(recordSet.getFloat(recordSet.getColumnIndex(Blood.KEY_READING)));
+                blood.setTime(recordSet.getLong(recordSet.getColumnIndex(Blood.KEY_TIME)));
+                bloodList.add(blood);
+            }
+            recordSet.moveToNext();
+        }
+        return bloodList;
+    }
+
+    public ArrayList<Insulin> getAllInsulin(){
+
+        ArrayList<Insulin> insulinList = new ArrayList<Insulin>();
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + Insulin.TABLE + " WHERE 1";// SELECT ALL
+        //Cursor points to a location in your results
+        Cursor recordSet = db.rawQuery(query, null);
+        //Move to the first row in your results
+        recordSet.moveToFirst();
+
+        //Position after the last row means the end of the results
+        while (!recordSet.isAfterLast()) {
+            // null could happen if we used our empty constructor
+            if (recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_UNITS)) != null) {
+                Insulin insulin = new Insulin();
+                insulin.setID(recordSet.getInt(recordSet.getColumnIndex(Insulin.KEY_INSULINID)));
+                insulin.setUnits(recordSet.getInt(recordSet.getColumnIndex(Insulin.KEY_UNITS)));
+                insulin.setTime(recordSet.getLong(recordSet.getColumnIndex(Insulin.KEY_TIME)));
+                insulinList.add(insulin);
+            }
+            recordSet.moveToNext();
+        }
+        return insulinList;
+    }
+
+    public ArrayList<Carbs> getAllCarbs(){
+
+        ArrayList<Carbs> carbsList = new ArrayList<Carbs>();
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + Carbs.TABLE + " WHERE 1";// SELECT ALL
+        //Cursor points to a location in your results
+        Cursor recordSet = db.rawQuery(query, null);
+        //Move to the first row in your results
+        recordSet.moveToFirst();
+
+        //Position after the last row means the end of the results
+        while (!recordSet.isAfterLast()) {
+            // null could happen if we used our empty constructor
+            if (recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_AMOUNT)) != null) {
+                Carbs carbs = new Carbs();
+                carbs.setCarbsId(recordSet.getInt(recordSet.getColumnIndex(Carbs.KEY_CARBSID)));
+                carbs.setAmount(recordSet.getInt(recordSet.getColumnIndex(Carbs.KEY_AMOUNT)));
+                carbs.setTime(recordSet.getLong(recordSet.getColumnIndex(Carbs.KEY_TIME)));
+                carbsList.add(carbs);
+            }
+            recordSet.moveToNext();
+        }
+        return carbsList;
+    }
 
     public String StingEpochToStringDate(String epoch){
-        String stringDate = "";
+
         long epochSec = Long.parseLong(epoch);
 
         Date date = new Date(epochSec);

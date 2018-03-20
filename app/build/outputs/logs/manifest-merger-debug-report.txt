@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.github.jjobes:slideDateTimePicker:1.0.2] C:\Users\User\.gradle\caches\transforms-1\files-1.1\slideDateTimePicker-1.0.2.aar\203c25f73132fd08e75fae084e6fb0a3\AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\7f85043ebc5f7115db5197bbd7b13b01\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\User\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\bb4b0cc15b8c9fa4acb77101e9a03140\AndroidManifest.xml:2:1-11:12
@@ -16,25 +16,25 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\User\.gra
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\db289e1fc6aba8f333a262377d4e629d\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\2e44e115b531cffed3c9d955e4f35ea7\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\b79e4e141051813805f4af76b48a010d\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:5:5-22:19
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:5:5-27:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\7f85043ebc5f7115db5197bbd7b13b01\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\7f85043ebc5f7115db5197bbd7b13b01\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\User\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\bb4b0cc15b8c9fa4acb77101e9a03140\AndroidManifest.xml:9:5-20
@@ -84,17 +84,37 @@ ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:1
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:16:27-74
 activity#uk.ac.ulster.mur.diamonitor.AddBlood
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:19:9-55
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:19:9-46
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:19:19-43
 activity#uk.ac.ulster.mur.diamonitor.AddInsulin
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:20:9-57
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:20:9-48
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:20:19-45
 activity#uk.ac.ulster.mur.diamonitor.AddCarbs
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:21:9-55
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:21:9-46
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:21:19-43
+activity#uk.ac.ulster.mur.diamonitor.UserSettings
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:22:9-50
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:22:19-47
+activity#uk.ac.ulster.mur.diamonitor.ViewBloodReadings
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:23:9-55
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:23:19-52
+activity#uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:24:9-57
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:24:19-54
+activity#uk.ac.ulster.mur.diamonitor.ViewCarbRecords
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:25:9-53
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:25:19-50
+activity#uk.ac.ulster.mur.diamonitor.ViewType
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:26:9-55
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:26:19-43
 uses-sdk
 INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml

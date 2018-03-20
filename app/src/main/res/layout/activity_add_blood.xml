@@ -23,6 +23,7 @@
         android:layout_below="@+id/BloodReadingEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="112dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:onClick="addButtonClicked"
         android:text="Record Blood Reading" />
 

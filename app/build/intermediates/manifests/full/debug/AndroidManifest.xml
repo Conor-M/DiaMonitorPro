@@ -27,6 +27,11 @@
         <activity android:name="uk.ac.ulster.mur.diamonitor.AddBlood" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.AddInsulin" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.AddCarbs" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.UserSettings" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewBloodReadings" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewCarbRecords" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewType" />
 
         <meta-data
             android:name="android.support.VERSION"
