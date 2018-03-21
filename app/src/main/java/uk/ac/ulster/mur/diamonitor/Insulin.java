@@ -30,9 +30,9 @@ public class Insulin{
     @Override
     public String toString() {
         Date date = new Date(this.time);
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yy");
         String stringDate = format.format(date);
-        String objectString = ID + " || " + units + " || " + stringDate;
-        return objectString;
+        return "You injected " + units + "units of insulin on " + stringDate;
+
     }
 }

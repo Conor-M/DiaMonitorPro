@@ -3,7 +3,7 @@
     package="uk.ac.ulster.mur.diamonitor.test" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="24"
         android:targetSdkVersion="26" />
 
     <instrumentation

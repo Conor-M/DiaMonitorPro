@@ -31,9 +31,9 @@ public class Blood {
     @Override
     public String toString() {
         Date date = new Date(this.time);
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yy");
         String stringDate = format.format(date);
-        String objectString = " ||Blood Reading was " + reading + " at " + stringDate + "|| ";
+        String objectString = "|Blood Reading was " + reading + " at " + stringDate + "|";
         return objectString;
     }
 }

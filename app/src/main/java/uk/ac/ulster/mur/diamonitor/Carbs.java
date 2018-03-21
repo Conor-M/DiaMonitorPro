@@ -31,9 +31,9 @@ public class Carbs {
     @Override
     public String toString() {
         Date date = new Date(this.time);
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yy");
         String stringDate = format.format(date);
-        String objectString = ID + " || " + amount + " || " + stringDate;
+        String objectString = "|You ate " + amount + "grams of carbs at " + stringDate + "|";
         return objectString;
     }
 }

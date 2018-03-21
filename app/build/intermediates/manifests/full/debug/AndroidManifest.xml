@@ -5,14 +5,19 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="24"
         android:targetSdkVersion="26" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:debuggable="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
@@ -32,6 +37,8 @@
         <activity android:name="uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.ViewCarbRecords" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.ViewType" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.SearchResult" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.Search" />
 
         <meta-data
             android:name="android.support.VERSION"

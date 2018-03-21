@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnBloodReading,btnCarb,btnInsulin,btnUserSet,btnViewReading,btnAnalyseBloodReadings; // DECLARE BUTTONS
-    MyDBHandler dbHandler;
+    private Button btnBloodReading,btnCarb,btnInsulin,btnUserSet,btnViewReading,btnAnalyseBloodReadings; // DECLARE BUTTONS
+    private MyDBHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, ViewType.class);
             startActivity(i);
         }else if (view ==findViewById(R.id.btnAnalyseBloodReadings)) {
-            Intent i = new Intent(this, AddBlood.class);
+            Intent i = new Intent(this, Search.class);
             startActivity(i);
         }
     }

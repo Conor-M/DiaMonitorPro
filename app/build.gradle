@@ -1,10 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
+    defaultConfig {
+        multiDexEnabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "uk.ac.ulster.mur.diamonitor"
-        minSdkVersion 19
+        minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -27,4 +34,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.fatsecret4j:fatsecret-platform:2.0'
+    //implementation 'com.android.volley:volley:1.0.0'
 }
+
+
