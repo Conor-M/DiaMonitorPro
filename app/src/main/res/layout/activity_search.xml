@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,63 +10,55 @@
         android:id="@+id/imageView"
         android:layout_width="240dp"
         android:layout_height="300dp"
-        android:layout_alignEnd="@+id/etSearchTerm"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="92dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="58dp"
+        android:layout_above="@+id/btnSearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
         android:contentDescription="Plate Image"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/tvSearchLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plate" />
+        app:srcCompat="@drawable/plate"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="86dp" />
 
     <TextView
         android:id="@+id/tvSearchLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="51dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="2dp"
-        android:text="Search Database for Carbs"
+        android:layout_marginTop="22dp"
+        android:text="Search Food Database for Carbs"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_light"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="27dp" />
 
     <EditText
         android:id="@+id/etSearchTerm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/btnSearch"
-        android:layout_marginBottom="75dp"
-        android:layout_marginStart="58dp"
+        android:layout_height="44dp"
+        android:layout_above="@+id/btnHome"
+        android:layout_alignStart="@+id/tvSearchLabel"
+        android:layout_marginBottom="22dp"
+        android:layout_marginStart="28dp"
         android:ems="10"
         android:hint="Enter Food to Search"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteY="393dp" />
 
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/tvSearchLabel"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="7dp"
+        android:layout_alignBottom="@+id/etSearchTerm"
+        android:layout_toEndOf="@+id/etSearchTerm"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="SearchButtonClicked"
         android:text="Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSearchLabel" />
+        android:textColor="@android:color/background_light"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="390dp" />
 
     <Button
         android:id="@+id/btnHome"
@@ -78,7 +70,5 @@
         android:onClick="HomeButtonClicked"
         android:text="Back To Main"
         android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        tools:layout_editor_absoluteY="463dp" />
+</RelativeLayout>

@@ -23,7 +23,7 @@
         android:layout_below="@+id/BloodReadingEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="112dp"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="addButtonClicked"
         android:text="Record Blood Reading" />
 
@@ -33,7 +33,6 @@
         android:layout_height="200dp"
         android:layout_above="@+id/btnHome"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="textMultiLine" />
 

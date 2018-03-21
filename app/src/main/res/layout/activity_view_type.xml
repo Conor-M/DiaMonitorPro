@@ -21,7 +21,10 @@
             android:layout_height="150dp"
             android:layout_column="0"
             android:layout_row="0"
-            android:text="View Carbs" />
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="View Carbs"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnViewInsulin"
@@ -30,7 +33,9 @@
             android:layout_height="150dp"
             android:layout_column="1"
             android:layout_row="0"
-            android:text="View Insulin" />
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="View Insulin"
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/btnViewBloodReadings"
@@ -41,7 +46,9 @@
             android:layout_columnSpan="2"
             android:layout_gravity="left|top"
             android:layout_row="1"
-            android:text="View Blood Readings" />
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:text="View Blood Readings"
+            android:textColor="@android:color/background_light" />
     </GridLayout>
 
     <Button
