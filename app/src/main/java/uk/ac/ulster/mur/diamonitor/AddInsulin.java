@@ -24,19 +24,18 @@ public class AddInsulin extends AppCompatActivity {
 
         public void addButtonClicked(View view){
 
-            EditText et3 = findViewById(R.id.editText3);
             Insulin insulin = new Insulin();
             insulin.setUnits(Integer.valueOf(InsulinReadingET.getText().toString()));
             insulin.setTime(System.currentTimeMillis());
             dbHandler.addInsulin(insulin);
             InsulinReadingET.setText("");
-            et3.setText(dbHandler.InsulinDatabaseToString());
             Toast.makeText(AddInsulin.this,
                     "Insulin added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
 
+
+            //Hides the keyboard after entry to ensure it does not interfere with the next action.
             InputMethodManager inputManager = (InputMethodManager)
                     getSystemService(Context.INPUT_METHOD_SERVICE);
-
             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);
     }

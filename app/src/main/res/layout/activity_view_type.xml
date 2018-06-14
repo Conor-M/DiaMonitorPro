@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:columnCount="2"
-    android:paddingLeft="40dp"
-    android:paddingRight="15dp"
+
     android:paddingTop="70dp"
     tools:context="uk.ac.ulster.mur.diamonitor.ViewType">
 
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:onClick="HomeButtonClicked"
+        android:text="Back To Main"
+        android:textColor="@android:color/background_light" />
 
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp">
 
         <Button
             android:id="@+id/btnViewCarbs"
@@ -51,16 +65,5 @@
             android:textColor="@android:color/background_light" />
     </GridLayout>
 
-    <Button
-        android:id="@+id/btnHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="fill_horizontal"
-        android:background="@color/colorPrimary"
-        android:onClick="HomeButtonClicked"
-        android:text="Back To Main"
-        android:textColor="@android:color/background_light" />
 
 </RelativeLayout>

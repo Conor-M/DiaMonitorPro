@@ -24,7 +24,7 @@ public class ViewInsulinMeasures extends AppCompatActivity {
 
         myList = findViewById(R.id.listInsulin);
         ArrayList<Insulin> insulinList = myDBHandler.getAllInsulin();
-        Collections.reverse(insulinList);
+        Collections.reverse(insulinList);//Reverse list so that items are in reverse chronological order
 
         ArrayAdapter<Insulin> adapter = new ArrayAdapter<Insulin>(this,android.R.layout.simple_list_item_1,insulinList);
         myList.setAdapter(adapter);

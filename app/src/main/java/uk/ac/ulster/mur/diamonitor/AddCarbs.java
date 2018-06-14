@@ -22,13 +22,11 @@ public class AddCarbs extends AppCompatActivity {
 
     public void addButtonClicked(View view){
 
-        EditText et3 = findViewById(R.id.displayEditText);
         Carbs carbs = new Carbs();
         carbs.setAmount(Integer.valueOf(CarbReadingET.getText().toString()));
         carbs.setTime(System.currentTimeMillis());
         dbHandler.addCarbs(carbs);
         CarbReadingET.setText("");
-        et3.setText(dbHandler.CarbsDatabaseToString());
         Toast.makeText(AddCarbs.this,
                 "Carbohydrates added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
         InputMethodManager inputManager = (InputMethodManager)

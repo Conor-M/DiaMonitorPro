@@ -1,5 +1,7 @@
 package uk.ac.ulster.mur.diamonitor;
 
+
+//Function of this class is to hold food entries as part of an FSFood Array for use with an array adapter to display`\
 public class FSFood {
     /** Name of the food, not including the brand name */
     private String name;
@@ -64,7 +66,7 @@ public class FSFood {
 
     /**
      * Sets the type of the food
-     *
+     * Type is equal to brand if there is a brand field
      * @param		type the type of the food
      */
     public void setType(String type) {

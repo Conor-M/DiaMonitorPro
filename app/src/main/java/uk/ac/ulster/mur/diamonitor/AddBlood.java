@@ -80,13 +80,11 @@ public class AddBlood extends FragmentActivity {
 
     public void addButtonClicked(View view){
 
-        EditText et3 = findViewById(R.id.editText3);
         Blood blood = new Blood();
         blood.setReading(Float.valueOf(bloodReadingET.getText().toString()));
         blood.setTime(System.currentTimeMillis());
         dbHandler.addBlood(blood);
         bloodReadingET.setText("");
-        et3.setText(dbHandler.bloodDatabaseToString());
         Toast.makeText(AddBlood.this,
                 "Blood Reading added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
         InputMethodManager inputManager = (InputMethodManager)

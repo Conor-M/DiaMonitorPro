@@ -131,6 +131,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
+    //CREATE TABLES
+
     public static String createInsulinTable(){
         return "CREATE TABLE " + Insulin.TABLE  + "("
                 + Insulin.KEY_INSULINID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -150,6 +152,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + Carbs.KEY_TIME + " LONG )";
     }
 
+    //INSERT into tables methods
     public void addCarbs(Carbs carbs) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -199,7 +202,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 dbString += "||\n";
             }
             recordSet.moveToNext();
+
         }
+
         db.close();
         return dbString;
     }
@@ -261,6 +266,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public String bloodDatabaseToString(){
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
+        //Select all fields from table blood select all records
         String query = "SELECT * FROM " + Blood.TABLE + " WHERE 1";// SELECT ALL
 
         //Cursor points to a location in your results
@@ -285,6 +291,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return dbString;
     }
+
+    //RETURN all records in the database table
     public ArrayList<Blood> getAllBlood(){
 
 
@@ -314,6 +322,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         ArrayList<Insulin> insulinList = new ArrayList<Insulin>();
         SQLiteDatabase db = getWritableDatabase();
+        //Select all fields from table insulin select all records
         String query = "SELECT * FROM " + Insulin.TABLE + " WHERE 1";// SELECT ALL
         //Cursor points to a location in your results
         Cursor recordSet = db.rawQuery(query, null);
@@ -339,6 +348,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         ArrayList<Carbs> carbsList = new ArrayList<Carbs>();
         SQLiteDatabase db = getWritableDatabase();
+        //Select all fields from table carbs select all records
         String query = "SELECT * FROM " + Carbs.TABLE + " WHERE 1";// SELECT ALL
         //Cursor points to a location in your results
         Cursor recordSet = db.rawQuery(query, null);
