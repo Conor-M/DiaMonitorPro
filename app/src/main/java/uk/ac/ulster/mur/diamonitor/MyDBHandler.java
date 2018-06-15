@@ -25,10 +25,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(createCarbsTable());
         db.execSQL(createBloodsTable());
         db.execSQL(createInsulinTable());
-        db.execSQL(createUserTable());
+        //db.execSQL(createUserTable());
         // insertDefaultUser();
     }
-    private String[] mAllUserColumns = { User.KEY_USERID, User.KEY_DEFAULTSET, User.KEY_MinRange, User.KEY_MaxRange, User.KEY_CorrectionRatio, User.KEY_CarbRatio };
+    /*private String[] mAllUserColumns = { User.KEY_USERID, User.KEY_DEFAULTSET, User.KEY_MinRange, User.KEY_MaxRange, User.KEY_CorrectionRatio, User.KEY_CarbRatio };
 
     public User getUser() {
         int id = 0;
@@ -74,8 +74,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + User.KEY_USERID + " INTEGER PRIMARY KEY,"
                 + User.KEY_CarbRatio + " INTEGER, "
                 + User.KEY_CorrectionRatio + " INTEGER, "
-                + User.KEY_MaxRange + " FLOAT, "
-                + User.KEY_MinRange + " FLOAT, "
+                + User.KEY_MaxRange + " DOUBLE, "
+                + User.KEY_MinRange + " DOUBLE, "
                 + User.KEY_DEFAULTSET + " INTEGER )";
     }
 
@@ -114,7 +114,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(User.TABLE,User.KEY_USERID + "=",new String[]{"0"});
         db.close();
-    }
+    }*/
 
 
     @Override

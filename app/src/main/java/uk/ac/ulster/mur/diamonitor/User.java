@@ -7,12 +7,12 @@ public class User {
     public static final String TABLE = "User";
 
     // Labels Table Columns names
-    public static final String KEY_USERID = "UserID";
+    /*public static final String KEY_USERID = "UserID";
     public static final String KEY_CarbRatio = "CarbRatio";
     public static final String KEY_CorrectionRatio = "CorrectionRatio";
     public static final String KEY_MaxRange = "MaxRange";
     public static final String KEY_MinRange = "MinRange";
-    public static final String KEY_DEFAULTSET = "DEFAULTSET";
+    public static final String KEY_DEFAULTSET = "DEFAULTSET";*/
 
     // Class Variables for storing DB Columns
     private int userID;

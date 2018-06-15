@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,7 +26,7 @@ public class AddBlood extends FragmentActivity {
 
 
 
-    private SlideDateTimeListener listener = new SlideDateTimeListener() {
+    /*private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
         @Override
         public void onDateTimeSet(Date date)
@@ -47,7 +45,7 @@ public class AddBlood extends FragmentActivity {
             Toast.makeText(AddBlood.this,
                     "Canceled", Toast.LENGTH_SHORT).show();
         }
-    };
+    };*/
 
 
 
@@ -79,17 +77,22 @@ public class AddBlood extends FragmentActivity {
     }
 
     public void addButtonClicked(View view){
-
+        //Create new Blood Object to store record
         Blood blood = new Blood();
-        blood.setReading(Float.valueOf(bloodReadingET.getText().toString()));
+        //Set values of blood record fields
+        blood.setReading(Double.valueOf(bloodReadingET.getText().toString()));
         blood.setTime(System.currentTimeMillis());
+        //Add blood Object values to database fields
         dbHandler.addBlood(blood);
+        //Clear Text Field for next entry
         bloodReadingET.setText("");
+
+        //Inform user of Addition made
         Toast.makeText(AddBlood.this,
                 "Blood Reading added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
+        //Hides Keyboard after addition of record
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }

@@ -19,13 +19,14 @@ public class ViewInsulinMeasures extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_insulin_measures);
 
-
         myDBHandler = new MyDBHandler(this, null, null, 1);
-
+        //Reference Insulin List
         myList = findViewById(R.id.listInsulin);
+        //Get All Insulin records
         ArrayList<Insulin> insulinList = myDBHandler.getAllInsulin();
-        Collections.reverse(insulinList);//Reverse list so that items are in reverse chronological order
-
+        //Reverse list so that items are in reverse chronological order
+        Collections.reverse(insulinList);
+        //apply ArrayList of Insulin to ArrayAdapter to display in ListView
         ArrayAdapter<Insulin> adapter = new ArrayAdapter<Insulin>(this,android.R.layout.simple_list_item_1,insulinList);
         myList.setAdapter(adapter);
     }

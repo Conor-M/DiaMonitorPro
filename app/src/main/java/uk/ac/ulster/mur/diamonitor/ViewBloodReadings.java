@@ -25,7 +25,7 @@ public class ViewBloodReadings extends AppCompatActivity {
 
         //Reference ListView
         myList = findViewById(R.id.listBloodReading);
-        //Get All Blood Sugars
+        //Get All Blood Sugars records
         ArrayList<Blood> bloodList = myDBHandler.getAllBlood();
         //Reverse array to put newest records at top of the list
         Collections.reverse(bloodList);

@@ -23,12 +23,16 @@ public class AddInsulin extends AppCompatActivity {
     }
 
         public void addButtonClicked(View view){
-
+            //Create new Insulin Object
             Insulin insulin = new Insulin();
+            //Set Insulin Object Values
             insulin.setUnits(Integer.valueOf(InsulinReadingET.getText().toString()));
             insulin.setTime(System.currentTimeMillis());
+            //Pass Insulin object to DBHandler
             dbHandler.addInsulin(insulin);
+            //Clear Insulin ET Fields for next entry
             InsulinReadingET.setText("");
+            //Inform User of addition
             Toast.makeText(AddInsulin.this,
                     "Insulin added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
 

@@ -5,11 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private Button btnBloodReading,btnCarb,btnInsulin,btnUserSet,btnViewReading,btnAnalyseBloodReadings; // DECLARE BUTTONS
+    // DECLARE BUTTONS
+    private Button btnBloodReading,btnCarb,btnInsulin,btnUserSet,btnViewReading,btnAnalyseBloodReadings;
     private MyDBHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnViewReading = findViewById(R.id.btnViewReadings);
         btnViewReading.setOnClickListener(this);
         dbHandler = new MyDBHandler(this, null, null, 1);
-        //CHECKS IF USER TABLE HAS ANY RECORDS THEN
 
-        //
-        // checkUser();
 
     }
 
     public void onClick(View view) {
-        //ONCLICKLISTENERS ACTIONS FOR EACH BUTTON
+        //onclicklistener actions for each button to bring user to specified intent
         if (view ==findViewById(R.id.btnBloodReading)){
             Intent i = new Intent(this, AddBlood.class);
             startActivity(i);
@@ -57,14 +53,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, Search.class);
             startActivity(i);
         }
-    }
-
-    private void checkUser(){
-        if(dbHandler.isUserTableEmpty()){
-            Toast.makeText(MainActivity.this,
-                    "Default User Setting Loaded" , Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(MainActivity.this,
-                    "Default User Setting Loaded" , Toast.LENGTH_LONG).show();}
     }
 }

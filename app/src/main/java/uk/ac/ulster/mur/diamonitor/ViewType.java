@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class ViewType extends AppCompatActivity implements View.OnClickListener{
+    //Declare Buttons
     Button btnViewBloodReadings, btnViewInsulin, btnViewCarbs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

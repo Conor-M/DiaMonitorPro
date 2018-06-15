@@ -49,20 +49,20 @@ public class SearchResult extends AppCompatActivity {
 
         //This response contains the list of food items at page number 3 for your query
         //If total results are less, then this response will have empty list of the food items
-        req.getFoods(requestQueue, query, 3);
+        //req.getFoods(requestQueue, query, 3);
 
         //This food object contains detailed information about the food item
-        req.getFood(requestQueue, 29304L);
+        //req.getFood(requestQueue, 29304L);
 
         //This response contains the list of recipe items at zeroth page for your query
-        req.getRecipes(requestQueue, query, 0);
+        //req.getRecipes(requestQueue, query, 0);
 
         //This response contains the list of recipe items at page number 2 for your query
         //If total results are less, then this response will have empty list of the recipe items
-        req.getRecipes(requestQueue, query, 2);
+        //req.getRecipes(requestQueue, query, 2);
 
         //This recipe object contains detailed information about the recipe item
-        req.getRecipe(requestQueue, 315L);
+        //req.getRecipe(requestQueue, 315L);
 
 
         adapter = new ArrayAdapter<FSFood>(this,android.R.layout.simple_list_item_1,fsFoodArrayList);

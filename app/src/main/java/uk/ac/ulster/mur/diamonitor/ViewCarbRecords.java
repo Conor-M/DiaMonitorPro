@@ -18,13 +18,15 @@ public class ViewCarbRecords extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_carb_records);
-
+        // Create connection to SQLite Database
         myDBHandler = new MyDBHandler(this, null, null, 1);
-
+        //Reference Carbs List
         myList = findViewById(R.id.listCarbs);
+        //Get All Blood Sugars records
         ArrayList<Carbs> carbsList = myDBHandler.getAllCarbs();
+        //Reverse array to put newest records at top of the list
         Collections.reverse(carbsList);
-
+        //apply ArrayList of carbs to ArrayAdapter to display in ListView
         ArrayAdapter<Carbs> adapter = new ArrayAdapter<Carbs>(this,android.R.layout.simple_list_item_1,carbsList);
         myList.setAdapter(adapter);
     }

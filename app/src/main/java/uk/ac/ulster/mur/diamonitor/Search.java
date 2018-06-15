@@ -13,7 +13,7 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-
+        //Sets image from resources
         ImageView iv = (ImageView) findViewById(R.id.imageView);
         iv.setImageResource(R.drawable.plate);
 
@@ -24,10 +24,14 @@ public class Search extends AppCompatActivity {
     }
 
     public void SearchButtonClicked(View view){
+        //declares intent
         Intent i = new Intent(this, SearchResult.class);
 
-        final EditText etSearchTerm = (EditText)findViewById(R.id.etSearchTerm);
+        EditText etSearchTerm = (EditText)findViewById(R.id.etSearchTerm);
+
+        //sets string searchMessage to etSearchTerm users search parameter
         String searchMessage = etSearchTerm.getText().toString();
+        //uses bundle to pass searchMessage to the intent activity
         i.putExtra("searchTerm", searchMessage);
         startActivity(i);
 

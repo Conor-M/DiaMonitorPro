@@ -17,14 +17,14 @@ public class Blood {
 
     // Class Variables for storing DB Columns
     private int ID ;
-    private float reading;
+    private double reading;
     private long time;
 
     //GETTERS AND SETTERS
     public int getBloodId(){return ID;}
     public void setBloodId(int ID){this.ID = ID;}
-    public float getReading(){return reading;}
-    public void setReading(float reading){this.reading = reading;}
+    public double getReading(){return reading;}
+    public void setReading(double reading){this.reading = reading;}
     public long getTime(){return time;}
     public void setTime(long time){this.time = time;}
 

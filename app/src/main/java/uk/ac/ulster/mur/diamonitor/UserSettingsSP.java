@@ -1,41 +1,3 @@
-/*package uk.ac.ulster.mur.diamonitor;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
-public class UserSettings extends AppCompatActivity {
-
-    EditText etCorrectionRatio, etCarbRatio, etMaxRange, etMinRange;
-    MyDBHandler dbHandler;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_settings);
-        etCorrectionRatio = (EditText) findViewById(R.id.etCorrectionRatio);
-        etCarbRatio = (EditText) findViewById(R.id.etCarbRatio);
-        etMaxRange = (EditText) findViewById(R.id.etMaxRange);
-        etMinRange = (EditText) findViewById(R.id.etMinRange);
-    }
-    public void ChangeUser(View view){
-        User user = new User();
-        user.setCarbRatio(Integer.valueOf(etCarbRatio.getText().toString()));
-        user.setCorrectionRatio(Integer.valueOf(etCorrectionRatio.getText().toString()));
-        user.setMaxRange(Float.valueOf(etMaxRange.getText().toString()));
-        user.setMinRange(Float.valueOf(etMinRange.getText().toString()));
-        dbHandler.editUser(user);
-        Toast.makeText(UserSettings.this,
-                "User setting changed" , Toast.LENGTH_LONG).show();
-    }
-    public void HomeButtonClicked(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-}
-*/
 package uk.ac.ulster.mur.diamonitor;
 
 import android.content.Context;
@@ -47,9 +9,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UserSettings extends AppCompatActivity {
+public class UserSettingsSP extends AppCompatActivity {
 
     EditText etCorrectionRatio, etCarbRatio, etMaxRange, etMinRange;
+    MyDBHandler dbHandler;
     //Default Values set for each
     private final int DEFAULTCORRRATIO = 2;
     private final int DEFAULTCARBRATIO = 5;
@@ -70,10 +33,10 @@ public class UserSettings extends AppCompatActivity {
         //set userSet to value held or zero as default value meaning userset hasnt been set
         int userSet = sharedPref.getInt("UserSet", 0);
         if(userSet == 1) {
-            Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }else{
-            Toast.makeText(UserSettings.this,
+            Toast.makeText(UserSettingsSP.this,
                     "You must Set all usersettings before leaving this page" , Toast.LENGTH_LONG).show();
         }
 
@@ -96,7 +59,7 @@ public class UserSettings extends AppCompatActivity {
         //Save the file
         editor.apply();
         //Inform User that settings have been changed
-        Toast.makeText(UserSettings.this,
+        Toast.makeText(UserSettingsSP.this,
                 "User setting changed" , Toast.LENGTH_LONG).show();
 
     }
@@ -119,7 +82,7 @@ public class UserSettings extends AppCompatActivity {
             etMinRange.setHint(Double.toString(minRange));
         }
         else{
-            Toast.makeText(UserSettings.this,
+            Toast.makeText(UserSettingsSP.this,
                     "Please Set User Settings" , Toast.LENGTH_LONG).show();
         }
 
