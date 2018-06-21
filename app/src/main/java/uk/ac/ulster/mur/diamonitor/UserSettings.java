@@ -78,7 +78,7 @@ public class UserSettings extends AppCompatActivity {
             startActivity(i);
         }else{
             Toast.makeText(UserSettings.this,
-                    "You must Set all usersettings before leaving this page" , Toast.LENGTH_LONG).show();
+                    "You must Set all user settings before leaving this page" , Toast.LENGTH_LONG).show();
         }
 
 
