@@ -20,6 +20,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="uk.ac.ulster.mur.diamonitor.MainActivity" >
             <intent-filter>
@@ -38,6 +39,7 @@
         <activity android:name="uk.ac.ulster.mur.diamonitor.ViewType" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.SearchResult" />
         <activity android:name="uk.ac.ulster.mur.diamonitor.Search" />
+        <activity android:name="uk.ac.ulster.mur.diamonitor.AnalyseBlood" />
 
         <meta-data
             android:name="android.support.VERSION"

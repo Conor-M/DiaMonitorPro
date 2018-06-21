@@ -23,7 +23,7 @@ public class ViewType extends AppCompatActivity implements View.OnClickListener{
     }
 
     public void onClick(View view) {
-        //ONCLICKLISTENERS ACTIONS FOR EACH BUTTON
+        //onClickListener actions for each button
         if (view ==findViewById(R.id.btnViewBloodReadings)){
             Intent i = new Intent(this, ViewBloodReadings.class);
             startActivity(i);

@@ -20,6 +20,11 @@ public class AddCarbs extends AppCompatActivity {
         dbHandler = new MyDBHandler(this, null, null, 1);
     }
 
+    public void searchButtonClicked(View view){
+        Intent i = new Intent(this, Search.class);
+        startActivity(i);
+    }
+
     public void addButtonClicked(View view){
         //Create new Carb Object
         Carbs carbs = new Carbs();
@@ -32,7 +37,7 @@ public class AddCarbs extends AppCompatActivity {
         CarbReadingET.setText("");
         //Inform User of addition
         Toast.makeText(AddCarbs.this,
-                "Carbohydrates added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
+                "Carbohydrates added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
 
         //Hide Keyboard to ensure can access navigation buttons
         InputMethodManager inputManager = (InputMethodManager)

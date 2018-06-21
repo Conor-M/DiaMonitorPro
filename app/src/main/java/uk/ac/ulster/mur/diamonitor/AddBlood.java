@@ -89,7 +89,7 @@ public class AddBlood extends FragmentActivity {
 
         //Inform user of Addition made
         Toast.makeText(AddBlood.this,
-                "Blood Reading added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
+                "Blood Reading added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
         //Hides Keyboard after addition of record
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);

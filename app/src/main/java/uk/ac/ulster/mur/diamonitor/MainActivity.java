@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void onClick(View view) {
+    public void onClick(View view){
         //onclicklistener actions for each button to bring user to specified intent
         if (view ==findViewById(R.id.btnBloodReading)){
             Intent i = new Intent(this, AddBlood.class);

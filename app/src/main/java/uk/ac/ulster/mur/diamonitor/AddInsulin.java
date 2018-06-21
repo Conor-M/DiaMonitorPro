@@ -34,7 +34,7 @@ public class AddInsulin extends AppCompatActivity {
             InsulinReadingET.setText("");
             //Inform User of addition
             Toast.makeText(AddInsulin.this,
-                    "Insulin added to Diary " + dbHandler.StingEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
+                    "Insulin added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
 
 
             //Hides the keyboard after entry to ensure it does not interfere with the next action.

@@ -198,7 +198,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 dbString += "||";
                 dbString += recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_UNITS));
                 dbString += "||";
-                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_TIME)));
+                dbString += StringEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Insulin.KEY_TIME)));
                 dbString += "||\n";
             }
             recordSet.moveToNext();
@@ -234,7 +234,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 dbString += "||";
                 dbString += recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_AMOUNT));
                 dbString += "||";
-                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_TIME)));
+                dbString += StringEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Carbs.KEY_TIME)));
                 dbString += "||\n";
             }
             recordSet.moveToNext();
@@ -283,7 +283,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 dbString += "||";
                 dbString += recordSet.getString(recordSet.getColumnIndex(Blood.KEY_READING));
                 dbString += "||";
-                dbString += StingEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Blood.KEY_TIME)));
+                dbString += StringEpochToStringDate(recordSet.getString(recordSet.getColumnIndex(Blood.KEY_TIME)));
                 dbString += "||\n";
             }
             recordSet.moveToNext();
@@ -370,12 +370,18 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return carbsList;
     }
 
-    public String StingEpochToStringDate(String epoch){
+    public String StringEpochToStringDate(String epoch){
 
         long epochSec = Long.parseLong(epoch);
 
         Date date = new Date(epochSec);
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm");
         return format.format(date);
+    }
+    public String StringEpochToHour(long epoch){
+        String hour;
+        Date date = new Date(epoch);
+        hour = new SimpleDateFormat("HH").toString();
+        return hour;
     }
 }
