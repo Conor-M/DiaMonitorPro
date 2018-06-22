@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, ViewType.class);
             startActivity(i);
         }else if (view ==findViewById(R.id.btnAnalyseBloodReadings)) {
-            Intent i = new Intent(this, Search.class);
+            Intent i = new Intent(this, AnalyseBlood.class);
             startActivity(i);
         }
     }

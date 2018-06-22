@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -22,65 +24,22 @@ public class AddBlood extends FragmentActivity {
     private MyDBHandler dbHandler;
     private EditText bloodReadingET;
 
-
-
-
-
-    /*private SlideDateTimeListener listener = new SlideDateTimeListener() {
-
-        @Override
-        public void onDateTimeSet(Date date)
-        {
-            //recordingDate = date;
-            //recordingTime = date.getTime();
-
-            Toast.makeText(AddBlood.this,
-                    mFormatter.format(date), Toast.LENGTH_SHORT).show();
-        }
-
-        // Optional cancel listener
-        @Override
-        public void onDateTimeCancel()
-        {
-            Toast.makeText(AddBlood.this,
-                    "Canceled", Toast.LENGTH_SHORT).show();
-        }
-    };*/
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_blood);
-        dbHandler = new MyDBHandler(this, null, null, 1);
+        dbHandler = new MyDBHandler(this, null, null, 2);
         bloodReadingET = findViewById(R.id.BloodReadingEditText);
-        /*mButton = (Button) findViewById(R.id);
-        mButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                new SlideDateTimePicker.Builder(getSupportFragmentManager())
-                        .setListener(listener)
-                        .setInitialDate(new Date())
-                        //.setMinDate(minDate)
-                        //.setMaxDate(maxDate)
-                        //.setIs24HourTime(true)
-                        //.setTheme(SlideDateTimePicker.HOLO_DARK)
-                        //.setIndicatorColor(Color.parseColor("#990000"))
-                        .build()
-                        .show();
-            }
-        });*/
-
-
     }
 
     public void addButtonClicked(View view){
         //Create new Blood Object to store record
         Blood blood = new Blood();
         //Set values of blood record fields
-        blood.setReading(Double.valueOf(bloodReadingET.getText().toString()));
+        NumberFormat format = new DecimalFormat("##.#");
+        float reading = Float.valueOf(bloodReadingET.getText().toString());
+
+        blood.setReading(Float.valueOf(format.format(reading)));
         blood.setTime(System.currentTimeMillis());
         //Add blood Object values to database fields
         dbHandler.addBlood(blood);

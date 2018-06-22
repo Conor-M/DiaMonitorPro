@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MyDBHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "diamonitor1.db";
 
 
@@ -25,97 +25,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(createCarbsTable());
         db.execSQL(createBloodsTable());
         db.execSQL(createInsulinTable());
-        //db.execSQL(createUserTable());
-        // insertDefaultUser();
     }
-    /*private String[] mAllUserColumns = { User.KEY_USERID, User.KEY_DEFAULTSET, User.KEY_MinRange, User.KEY_MaxRange, User.KEY_CorrectionRatio, User.KEY_CarbRatio };
-
-    public User getUser() {
-        int id = 0;
-        SQLiteDatabase db = getWritableDatabase();
-        Cursor cursor = db.query(User.TABLE, mAllUserColumns,
-                User.KEY_USERID + " = 0",
-                new String[] { String.valueOf(id) }, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-
-        User user = cursorToUser(cursor);
-        return user;
-    }
-
-    protected User cursorToUser(Cursor cursor) {
-        User user = new User();
-        user.setUserID(cursor.getInt(0));
-        user.setMinRange(cursor.getFloat(1));
-        user.setMaxRange(cursor.getFloat(2));
-        user.setCarbRatio(cursor.getInt(3));
-        user.setCorrectionRatio(cursor.getInt(4));
-        return user;
-    }
-
-    public boolean isUserTableEmpty(){
-
-        SQLiteDatabase db = getWritableDatabase();
-        String count = "SELECT count(*) FROM " + User.TABLE;
-        Cursor mcursor = db.rawQuery(count, null);
-        mcursor.moveToFirst();
-        int icount = mcursor.getInt(0);
-        if(icount>0){
-            return false;
-        }else{
-            insertDefaultUser();
-            return true;
-        }
-    }
-
-    public static String createUserTable(){
-        return "CREATE TABLE " + User.TABLE  + "("
-                + User.KEY_USERID + " INTEGER PRIMARY KEY,"
-                + User.KEY_CarbRatio + " INTEGER, "
-                + User.KEY_CorrectionRatio + " INTEGER, "
-                + User.KEY_MaxRange + " DOUBLE, "
-                + User.KEY_MinRange + " DOUBLE, "
-                + User.KEY_DEFAULTSET + " INTEGER )";
-    }
-
-    public void editUser(User user) {
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        deleteUser();
-        values.put(User.KEY_USERID, 0);
-        values.put(User.KEY_CarbRatio, user.getCarbRatio());
-        values.put(User.KEY_CorrectionRatio, user.getCorrectionRatio());
-        values.put(User.KEY_MinRange, user.getMinRange());
-        values.put(User.KEY_MaxRange, user.getMaxRange());
-        values.put(User.KEY_DEFAULTSET, 0);
-
-        // Inserting Row
-        db.insert(User.TABLE, null, values);
-        db.close();
-    }
-    public void insertDefaultUser() {
-
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(User.KEY_USERID, 0);
-        values.put(User.KEY_CarbRatio, 5);
-        values.put(User.KEY_CorrectionRatio, 2);
-        values.put(User.KEY_MaxRange, 9.5);
-        values.put(User.KEY_MinRange, 4.5);
-        values.put(User.KEY_DEFAULTSET, 1);
-
-        // Inserting Row
-        db.insert(User.TABLE, null, values);
-        db.close();
-    }
-
-    public void deleteUser( ) {
-        SQLiteDatabase db = getWritableDatabase();
-        db.delete(User.TABLE,User.KEY_USERID + "=",new String[]{"0"});
-        db.close();
-    }*/
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -142,7 +52,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static String createBloodsTable(){
         return "CREATE TABLE " + Blood.TABLE  + "("
                 + Blood.KEY_BLOODID + " INTEGER PRIMARY KEY AUTOINCREMENT,  "
-                + Blood.KEY_READING + " FLOAT, "
+                + Blood.KEY_READING + " DECIMAL(4,1), "
                 + Blood.KEY_TIME + " LONG )";
     }
     public static String createCarbsTable(){
@@ -378,10 +288,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm");
         return format.format(date);
     }
-    public String StringEpochToHour(long epoch){
+    public int StringEpochToHour(long epoch) {
         String hour;
         Date date = new Date(epoch);
-        hour = new SimpleDateFormat("HH").toString();
-        return hour;
+        SimpleDateFormat format = new SimpleDateFormat("HH");
+        hour = format.format(date);
+        return Integer.parseInt(hour);
     }
 }
