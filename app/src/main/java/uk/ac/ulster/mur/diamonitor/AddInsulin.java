@@ -23,25 +23,29 @@ public class AddInsulin extends AppCompatActivity {
     }
 
         public void addButtonClicked(View view){
-            //Create new Insulin Object
-            Insulin insulin = new Insulin();
-            //Set Insulin Object Values
-            insulin.setUnits(Integer.valueOf(InsulinReadingET.getText().toString()));
-            insulin.setTime(System.currentTimeMillis());
-            //Pass Insulin object to DBHandler
-            dbHandler.addInsulin(insulin);
-            //Clear Insulin ET Fields for next entry
-            InsulinReadingET.setText("");
-            //Inform User of addition
-            Toast.makeText(AddInsulin.this,
-                    "Insulin added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
+            if ("".equals(InsulinReadingET.getText().toString().trim())){
+                Toast.makeText(this, "You must enter a unit value for insulin", Toast.LENGTH_LONG).show();
+            }else {
+                //Create new Insulin Object
+                Insulin insulin = new Insulin();
+                //Set Insulin Object Values
+                insulin.setUnits(Integer.valueOf(InsulinReadingET.getText().toString()));
+                insulin.setTime(System.currentTimeMillis());
+                //Pass Insulin object to DBHandler
+                dbHandler.addInsulin(insulin);
+                //Clear Insulin ET Fields for next entry
+                InsulinReadingET.setText("");
+                //Inform User of addition
+                Toast.makeText(AddInsulin.this,
+                        "Insulin added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
 
 
-            //Hides the keyboard after entry to ensure it does not interfere with the next action.
-            InputMethodManager inputManager = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
+                //Hides the keyboard after entry to ensure it does not interfere with the next action.
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+            }
     }
 
     public void HomeButtonClicked(View view){

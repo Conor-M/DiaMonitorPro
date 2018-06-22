@@ -26,24 +26,28 @@ public class AddCarbs extends AppCompatActivity {
     }
 
     public void addButtonClicked(View view){
-        //Create new Carb Object
-        Carbs carbs = new Carbs();
-        //Set values of carb object to values of Edittext
-        carbs.setAmount(Integer.valueOf(CarbReadingET.getText().toString()));
-        carbs.setTime(System.currentTimeMillis());
-        //pass Carb object DbHandler to put values in database
-        dbHandler.addCarbs(carbs);
-        //Clear Values from edittext for next entry
-        CarbReadingET.setText("");
-        //Inform User of addition
-        Toast.makeText(AddCarbs.this,
-                "Carbohydrates added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
+        if ("".equals(CarbReadingET.getText().toString().trim())){
+            Toast.makeText(this, "You must enter the amount of carbs", Toast.LENGTH_LONG).show();
+        }else {
+            //Create new Carb Object
+            Carbs carbs = new Carbs();
+            //Set values of carb object to values of Edittext
+            carbs.setAmount(Integer.valueOf(CarbReadingET.getText().toString()));
+            carbs.setTime(System.currentTimeMillis());
+            //pass Carb object DbHandler to put values in database
+            dbHandler.addCarbs(carbs);
+            //Clear Values from edittext for next entry
+            CarbReadingET.setText("");
+            //Inform User of addition
+            Toast.makeText(AddCarbs.this,
+                    "Carbohydrates added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
 
-        //Hide Keyboard to ensure can access navigation buttons
-        InputMethodManager inputManager = (InputMethodManager)
-                getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
+            //Hide Keyboard to ensure can access navigation buttons
+            InputMethodManager inputManager = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 
     public void HomeButtonClicked(View view){
