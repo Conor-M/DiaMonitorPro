@@ -24,7 +24,7 @@ public class Search extends AppCompatActivity {
     }
 
     public void SearchButtonClicked(View view){
-        //declares intent
+        //brings the user to the results of search
         Intent i = new Intent(this, SearchResult.class);
 
         EditText etSearchTerm = (EditText)findViewById(R.id.etSearchTerm);
