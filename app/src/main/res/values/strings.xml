@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DiaMonitor</string>
+    <string name="insulin">Insulin</string>
+    <string name="carbs">Carbs</string>
+    <string name="view_readings">View Readings</string>
+    <string name="analyse_blood_readings">Analyse Blood Readings</string>
+    <string name="user_settings">User Settings</string>
+    <string name="blood_reading">Blood Reading</string>
 </resources>

@@ -3,14 +3,23 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+    <ImageView
+        android:id="@+id/ivlogo"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:adjustViewBounds="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/insulin" />
 
     <EditText
         android:id="@+id/InsulinReadingEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/ivlogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
         android:ems="10"
         android:hint="Insert Units Injected"
         android:inputType="number" />
@@ -19,8 +28,9 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ivlogo"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="54dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="addButtonClicked"
         android:text="Record Units Injected" />

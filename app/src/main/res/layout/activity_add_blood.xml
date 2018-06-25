@@ -3,19 +3,30 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
+    <ImageView
+        android:id="@+id/ivlogo"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:adjustViewBounds="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/blood">
+    </ImageView>
+
 
     <EditText
         android:id="@+id/BloodReadingEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/ivlogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="23dp"
         android:digits="1234567890."
         android:ems="10"
         android:hint="Insert Blood Reading"
-        android:inputType="numberDecimal"
-        android:numeric="decimal" />
+        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/button"
@@ -23,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/BloodReadingEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="18dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="addButtonClicked"
         android:text="Record Blood Reading" />

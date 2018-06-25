@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // DECLARE BUTTONS
@@ -28,8 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnViewReading = findViewById(R.id.btnViewReadings);
         btnViewReading.setOnClickListener(this);
         dbHandler = new MyDBHandler(this, null, null, 1);
-
-
+        ImageView ivLogo = (ImageView) findViewById(R.id.ivlogo);
+        ivLogo.setImageResource(R.drawable.logo);
     }
 
     public void onClick(View view){

@@ -14,13 +14,23 @@
         android:text="Back To Main"
         android:textColor="@android:color/background_light" />
 
+    <ImageView
+        android:id="@+id/ivlogo"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:adjustViewBounds="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/carbs" />
+
     <EditText
         android:id="@+id/carbReadingEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
+        android:layout_above="@+id/addButton"
+        android:layout_alignEnd="@+id/addButton"
         android:ems="10"
         android:hint="Insert Carbs Eaten"
         android:inputType="number" />
@@ -29,8 +39,9 @@
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/searchButton"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="26dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="addButtonClicked"
         android:text="Record Carbohydrates" />
