@@ -31,7 +31,7 @@
         <activity android:name=".ViewType" />
         <activity android:name=".SearchResult" />
         <activity android:name=".Search" />
-        <activity android:name=".AnalyseBlood"></activity>
+        <activity android:name=".AnalyseBlood" />
     </application>
 
 </manifest>

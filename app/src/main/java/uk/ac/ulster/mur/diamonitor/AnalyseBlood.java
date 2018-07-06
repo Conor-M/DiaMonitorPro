@@ -119,9 +119,6 @@ public class AnalyseBlood extends AppCompatActivity {
             analysisResults += "You have had " + lowNight + " low readings in the night time\n";
         }
         tvAnalysisResult.setText(analysisResults);
-
-
-
     }
 
 }

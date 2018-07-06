@@ -136,7 +136,7 @@ ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:3
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:33:19-41
 activity#uk.ac.ulster.mur.diamonitor.AnalyseBlood
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:34:9-59
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:34:9-50
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:34:19-47
 uses-sdk

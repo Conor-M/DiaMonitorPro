@@ -4,7 +4,7 @@
  * gradle plugin from the resource data it found. It
  * should not be modified by hand.
  */
-package android.support.v4;
+package android.support.coreui;
 
 public final class R {
     public static final class attr {
@@ -24,10 +24,7 @@ public final class R {
     public static final class color {
         public static final int notification_action_color_filter = 0x7f040040;
         public static final int notification_icon_bg_color = 0x7f040041;
-        public static final int notification_material_background_media_default_color = 0x7f040042;
-        public static final int primary_text_default_material_dark = 0x7f040047;
         public static final int ripple_material_light = 0x7f04004c;
-        public static final int secondary_text_default_material_dark = 0x7f04004d;
         public static final int secondary_text_default_material_light = 0x7f04004e;
     }
     public static final class dimen {
@@ -67,7 +64,6 @@ public final class R {
         public static final int notify_panel_notification_icon_bg = 0x7f060067;
     }
     public static final class id {
-        public static final int action0 = 0x7f070008;
         public static final int action_container = 0x7f070010;
         public static final int action_divider = 0x7f070012;
         public static final int action_image = 0x7f070013;
@@ -75,9 +71,7 @@ public final class R {
         public static final int actions = 0x7f07001a;
         public static final int async = 0x7f070020;
         public static final int blocking = 0x7f070023;
-        public static final int cancel_action = 0x7f070036;
         public static final int chronometer = 0x7f07003a;
-        public static final int end_padder = 0x7f070046;
         public static final int forever = 0x7f07004e;
         public static final int icon = 0x7f070051;
         public static final int icon_group = 0x7f070052;
@@ -85,37 +79,25 @@ public final class R {
         public static final int italic = 0x7f070057;
         public static final int line1 = 0x7f07005a;
         public static final int line3 = 0x7f07005b;
-        public static final int media_actions = 0x7f070062;
         public static final int normal = 0x7f070068;
         public static final int notification_background = 0x7f070069;
         public static final int notification_main_column = 0x7f07006a;
         public static final int notification_main_column_container = 0x7f07006b;
         public static final int right_icon = 0x7f070073;
         public static final int right_side = 0x7f070074;
-        public static final int status_bar_latest_event_content = 0x7f070091;
         public static final int text = 0x7f070096;
         public static final int text2 = 0x7f070097;
         public static final int time = 0x7f07009a;
         public static final int title = 0x7f07009c;
     }
     public static final class integer {
-        public static final int cancel_button_image_alpha = 0x7f080002;
         public static final int status_bar_notification_info_maxnum = 0x7f080004;
     }
     public static final class layout {
         public static final int notification_action = 0x7f09002a;
         public static final int notification_action_tombstone = 0x7f09002b;
-        public static final int notification_media_action = 0x7f09002c;
-        public static final int notification_media_cancel_action = 0x7f09002d;
-        public static final int notification_template_big_media = 0x7f09002e;
-        public static final int notification_template_big_media_custom = 0x7f09002f;
-        public static final int notification_template_big_media_narrow = 0x7f090030;
-        public static final int notification_template_big_media_narrow_custom = 0x7f090031;
         public static final int notification_template_custom_big = 0x7f090032;
         public static final int notification_template_icon_group = 0x7f090033;
-        public static final int notification_template_lines_media = 0x7f090034;
-        public static final int notification_template_media = 0x7f090035;
-        public static final int notification_template_media_custom = 0x7f090036;
         public static final int notification_template_part_chronometer = 0x7f090037;
         public static final int notification_template_part_time = 0x7f090038;
     }
@@ -125,14 +107,9 @@ public final class R {
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f0c00fb;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f0c00fc;
-        public static final int TextAppearance_Compat_Notification_Info_Media = 0x7f0c00fd;
         public static final int TextAppearance_Compat_Notification_Line2 = 0x7f0c00fe;
-        public static final int TextAppearance_Compat_Notification_Line2_Media = 0x7f0c00ff;
-        public static final int TextAppearance_Compat_Notification_Media = 0x7f0c0100;
         public static final int TextAppearance_Compat_Notification_Time = 0x7f0c0101;
-        public static final int TextAppearance_Compat_Notification_Time_Media = 0x7f0c0102;
         public static final int TextAppearance_Compat_Notification_Title = 0x7f0c0103;
-        public static final int TextAppearance_Compat_Notification_Title_Media = 0x7f0c0104;
         public static final int Widget_Compat_NotificationActionContainer = 0x7f0c016c;
         public static final int Widget_Compat_NotificationActionText = 0x7f0c016d;
     }

@@ -18,11 +18,10 @@
 
     <EditText
         android:id="@+id/BloodReadingEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivlogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
+        android:layout_above="@+id/btnPick"
+        android:layout_alignStart="@+id/btnPick"
         android:digits="1234567890."
         android:ems="10"
         android:hint="Insert Blood Reading"
@@ -30,11 +29,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/BloodReadingEditText"
+        android:layout_above="@+id/btnHome"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:onClick="addButtonClicked"
         android:text="Record Blood Reading" />
@@ -49,5 +47,14 @@
         android:onClick="HomeButtonClicked"
         android:text="Back To Main"
         android:textColor="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/btnPick"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="Choose Time" />
 
 </RelativeLayout>
