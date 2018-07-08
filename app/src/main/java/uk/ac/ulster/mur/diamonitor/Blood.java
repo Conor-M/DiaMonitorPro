@@ -13,6 +13,8 @@ public class Blood {
     public static final String KEY_BLOODID = "BloodId";
     public static final String KEY_READING = "Reading";
     public static final String KEY_TIME = "Time";
+    public static final String DEFAULTMAXRANGE = "10.0";
+    public static final String DEFAULTMINRANGE = "4.0";
 
 
     // Class Variables for storing DB Columns

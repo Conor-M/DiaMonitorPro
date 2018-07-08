@@ -65,8 +65,13 @@ public class AddInsulin extends AppCompatActivity implements DatePickerDialog.On
                     insulin.setTime(System.currentTimeMillis());
                 }
                 //Pass Insulin object to DBHandler
-                dbHandler.addInsulin(insulin);
-                //Clear Insulin ET Fields for next entry
+                //Add blood Object values to database fields
+                if(System.currentTimeMillis()<insulin.getTime()) {
+                    dbHandler.addInsulin(insulin);
+                }else {
+                    Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
+                }
+                    //Clear Insulin ET Fields for next entry
                 InsulinReadingET.setText("");
                 //Inform User of addition
                 Toast.makeText(AddInsulin.this,

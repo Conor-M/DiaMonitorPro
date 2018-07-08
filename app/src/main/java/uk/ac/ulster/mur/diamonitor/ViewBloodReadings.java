@@ -29,6 +29,8 @@ public class ViewBloodReadings extends AppCompatActivity {
         ArrayList<Blood> bloodList = myDBHandler.getAllBlood();
         //Reverse array to put newest records at top of the list
         Collections.reverse(bloodList);
+        Collections.sort(bloodList, new BloodComparator());
+
 
         //Create and set array adapter to put Blood records in the list
         ArrayAdapter<Blood> adapter = new ArrayAdapter<Blood>(this,android.R.layout.simple_list_item_1,bloodList);

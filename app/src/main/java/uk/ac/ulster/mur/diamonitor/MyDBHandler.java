@@ -61,6 +61,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + Carbs.KEY_AMOUNT + " INTEGER, "
                 + Carbs.KEY_TIME + " LONG )";
     }
+    @Override
+    protected void finalize() throws Throwable {
+        this.close();
+        super.finalize();
+    }
 
     //INSERT into tables methods
     public void addCarbs(Carbs carbs) {
@@ -88,6 +93,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.delete(Insulin.TABLE, null,null);
         db.close();
     }
+
 
     public String InsulinDatabaseToString(){
         String dbString = "";

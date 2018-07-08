@@ -3,13 +3,23 @@ package uk.ac.ulster.mur.diamonitor;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jjoe64.graphview.DefaultLabelFormatter;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 public class AnalyseBlood extends AppCompatActivity {
 
@@ -20,6 +30,8 @@ public class AnalyseBlood extends AppCompatActivity {
     private final String DEFAULTMAXRANGE = "10.0";
     private final String DEFAULTMINRANGE = "4.0";
     private TextView tvAnalysisResult;
+    long timeCurr = System.currentTimeMillis();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +41,7 @@ public class AnalyseBlood extends AppCompatActivity {
         //Get All Blood Sugars records
         //Reverse array to put newest records at top of the list
         analyseBloods();
+        DrawGraph();
     }
     public void HomeButtonClicked(View view){
         Intent i = new Intent(this, MainActivity.class);
@@ -45,8 +58,7 @@ public class AnalyseBlood extends AppCompatActivity {
         Collections.reverse(bloodList);
         for(Blood bloodReading: bloodList){
                 //1209600 seconds = 2weeks
-            long timeCurr = System.currentTimeMillis();
-            long prev2WeeksTime = timeCurr - 1209600000;
+            long prev2WeeksTime = timeCurr - TimeUnit.DAYS.toMillis(14);;
             float br = bloodReading.getReading();
             long time = bloodReading.getTime();
             int bsHour = myDBHandler.StringEpochToHour(time); //Extract the hour digit out of the time for period of the day
@@ -119,6 +131,112 @@ public class AnalyseBlood extends AppCompatActivity {
             analysisResults += "You have had " + lowNight + " low readings in the night time\n";
         }
         tvAnalysisResult.setText(analysisResults);
+    }
+
+    public void DrawGraph(){
+        bloodList = myDBHandler.getAllBlood();
+        Collections.reverse(bloodList);
+
+        /*Collections.sort(bloodList, new Comparator<Blood>() {
+            @Override public int compare(Blood b1, Blood b2) {
+                return Long.compare(b1.getTime(),b2.getTime()); // Ascending
+            }
+
+        });*/
+        Collections.sort(bloodList, new BloodComparator());
+
+        int countDays = 0;
+        int count = 0;
+        float averageTotal = 0.0f;
+        float[] averages = new float[7];
+
+        for(Blood bloodReading: bloodList){
+
+            long time = bloodReading.getTime();
+            if(timeCurr<bloodReading.getTime())
+                continue;
+            Log.e("e", "Time: " + bloodReading.getTime());
+            long weekInMilli = TimeUnit.DAYS.toMillis(7);
+            long weekPrev = timeCurr - weekInMilli;
+
+            if(time<weekPrev)
+                break;
+            long start = TimeUnit.DAYS.toMillis(countDays);
+            Log.e("Start", "" +start);
+            long startTime = timeCurr - start;
+            long end = TimeUnit.DAYS.toMillis(countDays+1);
+            long endTime = timeCurr - end;
+
+
+            if(time<startTime && time>endTime){
+                float reading = bloodReading.getReading();
+                Log.e("Blood", "Reading: " + reading);
+                Log.e("Average Count", "Av:" + averages[countDays] + "count: " + count);
+
+                averageTotal += reading;
+                count++;
+                averages[countDays] = averageTotal/count;
+                Log.e("Average Count", "av total" + averageTotal + "Av:" + averages[countDays] + "count: " + count);
+
+                /*if(averages[countMin]==Float.NaN){
+                    averages[countMin] = 0.0f;}*/
+
+            }else {
+                //if(countMin)
+                countDays++;
+                count = 0;
+                averageTotal = 0;
+            }
+        }
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[0]);
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[1]);
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[2]);
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[3]);
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[4]);
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[5]);
+        Log.e("e", "AVERAGES!!!!!!!: " + averages[6]);
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
+                new DataPoint(1, averages[6]),
+                new DataPoint(2, averages[5]),
+                new DataPoint(3, averages[4]),
+                new DataPoint(4, averages[3]),
+                new DataPoint(5, averages[2]),
+                new DataPoint(6, averages[1]),
+                new DataPoint(7, averages[0])
+        });
+        series.setColor(Color.CYAN);
+        series.setDrawDataPoints(true);
+        series.setDataPointsRadius(8);
+        series.setThickness(6);
+        series.setBackgroundColor(Color.WHITE);
+        graph.getViewport().setXAxisBoundsManual(false);
+        graph.setTitle("Daily Average Blood Sugar Reading");
+        graph.setTitleColor(Color.BLACK);
+        graph.setBackgroundColor(Color.argb(50, 13, 205, 255));
+        graph.getViewport().setMinX(1);
+        graph.getViewport().setMaxX(7);
+
+        // custom paint to make a dotted line
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(5);
+        paint.setPathEffect(new DashPathEffect(new float[]{8, 10}, 1));
+        series.setCustomPaint(paint);
+        graph.addSeries(series);
+        // custom label formatter to show currency "EUR"
+        graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if (isValueX) {
+                    // show normal x values
+                    return super.formatLabel(value, isValueX);
+                } else {
+                    // show currency for y values
+                    return super.formatLabel(value, isValueX) + " mmol/l";
+                }
+            }
+        });
     }
 
 }

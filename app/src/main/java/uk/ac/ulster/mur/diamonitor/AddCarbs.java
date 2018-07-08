@@ -27,7 +27,6 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
     Button btnPick;
     int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
     int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
-    private final int DEFAULTCARBRATIO = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
 
     public void ShowDialog(int carbs){
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
-        int carbRatio = sharedPref.getInt("carbRatio", DEFAULTCARBRATIO);
+        int carbRatio = sharedPref.getInt("carbRatio", Insulin.DEFAULTCARBRATIO);
         int carbUnits = carbs;
         carbUnits -= (carbUnits%carbRatio);//rounding reading to nearest unit
         carbUnits = carbUnits/carbRatio;
@@ -105,7 +104,12 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
                 carbs.setTime(System.currentTimeMillis());
             }
             //pass Carb object DbHandler to put values in database
-            dbHandler.addCarbs(carbs);
+            //Add blood Object values to database fields
+            if(System.currentTimeMillis()>carbs.getTime()) {
+                dbHandler.addCarbs(carbs);
+            }else
+                Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
+
             //Clear Values from edittext for next entry
             CarbReadingET.setText("");
             //Inform User of addition

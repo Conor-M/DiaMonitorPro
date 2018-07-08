@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="24"
-        android:targetSdkVersion="26" />
+        android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,39 +14,67 @@
     <application
         android:allowBackup="true"
         android:debuggable="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name="uk.ac.ulster.mur.diamonitor.MainActivity" >
+        android:theme="@style/Base.AppTheme" >
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.MainActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="uk.ac.ulster.mur.diamonitor.AddBlood" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.AddInsulin" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.AddCarbs" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.UserSettings" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewBloodReadings" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewCarbRecords" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.ViewType" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.SearchResult" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.Search" />
-        <activity android:name="uk.ac.ulster.mur.diamonitor.AnalyseBlood" />
-
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
-        <meta-data
-            android:name="android.arch.lifecycle.VERSION"
-            android:value="27.0.0-SNAPSHOT" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AddBlood"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AddInsulin"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AddCarbs"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.UserSettings"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewBloodReadings"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewCarbRecords"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewType"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.SearchResult"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.Search"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AnalyseBlood"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

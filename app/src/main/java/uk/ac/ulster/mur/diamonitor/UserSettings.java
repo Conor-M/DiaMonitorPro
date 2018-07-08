@@ -1,5 +1,6 @@
 package uk.ac.ulster.mur.diamonitor;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,10 +16,6 @@ public class UserSettings extends AppCompatActivity {
     EditText etCorrectionRatio, etCarbRatio, etMaxRange, etMinRange;
     TextView tvTest;
     //Default Values set for each
-    private final int DEFAULTCORRRATIO = 2;
-    private final int DEFAULTCARBRATIO = 5;
-    private final String DEFAULTMAXRANGE = "10.0";
-    private final String DEFAULTMINRANGE = "4.0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +25,26 @@ public class UserSettings extends AppCompatActivity {
         etMaxRange = (EditText) findViewById(R.id.etMaxRange);
         etMinRange = (EditText) findViewById(R.id.etMinRange);
         tvTest = (TextView) findViewById(R.id.tvTest);
+        InformUser();
         showData();
+    }
+
+    public void InformUser(){
+        SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
+        //set userSet to value held or zero as default value meaning userset hasnt been set
+        int userSet = sharedPref.getInt("userSet", 0);
+        if(userSet == 1) {
+            AlertDialog alertLowDialog = new AlertDialog.Builder(
+                    this).create();
+            // Setting Dialog Title
+            alertLowDialog.setTitle("Important");
+            // Setting Dialog Message
+            alertLowDialog.setMessage("Your blood sugar was  which is below your optimal range. You should treat this hypo with 30 grams of carbohydrates!");
+            // Setting Icon to Dialog
+            alertLowDialog.setIcon(R.drawable.warningicon);
+            // Showing Alert Message
+            alertLowDialog.show();
+        }
     }
 
     public void HomeButtonClicked(View view){
@@ -84,12 +100,12 @@ public class UserSettings extends AppCompatActivity {
         //set userSet to value held or zero as default value meaning userset hasnt been set
         int userSet = sharedPref.getInt("userSet", 0);
         if(userSet == 1) {
-            int carbRatio = sharedPref.getInt("carbRatio", DEFAULTCARBRATIO);
-            int corrRatio = sharedPref.getInt("corrRatio", DEFAULTCORRRATIO);
+            int carbRatio = sharedPref.getInt("carbRatio", Insulin.DEFAULTCARBRATIO);
+            int corrRatio = sharedPref.getInt("corrRatio", Insulin.DEFAULTCORRRATIO);
             //double minRange = Double.parseDouble(sharedPref.getString("minRange", DEFAULTMINRANGE));
             //double maxRange = Double.parseDouble(sharedPref.getString("maxRange", DEFAULTMAXRANGE));
-            String minRange =sharedPref.getString("minRange", DEFAULTMINRANGE);
-            String maxRange = sharedPref.getString("maxRange", DEFAULTMAXRANGE);
+            String minRange =sharedPref.getString("minRange", Blood.DEFAULTMINRANGE);
+            String maxRange = sharedPref.getString("maxRange", Blood.DEFAULTMAXRANGE);
             /*etCarbRatio.setHint(Integer.toString(carbRatio));
             etCorrectionRatio.setHint(Integer.toString(corrRatio));
             etMaxRange.setHint(Double.toString(maxRange));

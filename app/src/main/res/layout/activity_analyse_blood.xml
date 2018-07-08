@@ -20,17 +20,24 @@
     <TextView
         android:id="@+id/tvAnalysisResult"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="225dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ivAnalyseLogo"
-        android:textColor="@color/gray_holo_dark" />
+        android:textColor="#515151" />
 
     <ImageView
         android:id="@+id/ivAnalyseLogo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         app:srcCompat="@drawable/analyse" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_above="@+id/btnHome"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

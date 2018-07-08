@@ -7,31 +7,60 @@
 
     <application
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
+        android:theme="@style/Base.AppTheme">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
+
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddBlood" />
-        <activity android:name=".AddInsulin" />
-        <activity android:name=".AddCarbs" />
-        <activity android:name=".UserSettings" />
-        <activity android:name=".ViewBloodReadings" />
-        <activity android:name=".ViewInsulinMeasures" />
-        <activity android:name=".ViewCarbRecords" />
-        <activity android:name=".ViewType" />
-        <activity android:name=".SearchResult" />
-        <activity android:name=".Search" />
-        <activity android:name=".AnalyseBlood" />
+        <activity android:name=".AddBlood"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".AddInsulin"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".AddCarbs"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".UserSettings"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity android:name=".ViewBloodReadings"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ViewInsulinMeasures"
+            android:screenOrientation="portrait">
+        </activity>
+
+
+        <activity android:name=".ViewCarbRecords"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ViewType"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".SearchResult"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".Search"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".AnalyseBlood"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

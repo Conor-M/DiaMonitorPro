@@ -38,9 +38,6 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
     TextView tvResult;
     int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
     int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
-    private final int DEFAULTCORRRATIO = 2;
-    private final String DEFAULTMAXRANGE = "10.0";
-    private final String DEFAULTMINRANGE = "4.0";
 
 
     @Override
@@ -65,6 +62,7 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
 
     public void addButtonClicked(View view){
         float reading = Float.valueOf(bloodReadingET.getText().toString());
+
         if ("".equals(bloodReadingET.getText().toString().trim())){
             Toast.makeText(this, "You must enter your blood sugar reading", Toast.LENGTH_LONG).show();
         }else {
@@ -87,10 +85,14 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
                 blood.setTime(System.currentTimeMillis());
             }
             //Add blood Object values to database fields
-            dbHandler.addBlood(blood);
+            if(System.currentTimeMillis()>blood.getTime()) {
+                dbHandler.addBlood(blood);
+            }else {
+                Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
+            }
+
             //Clear Text Field for next entry
             bloodReadingET.setText("");
-
             //Inform user of Addition made
             Toast.makeText(AddBlood.this,
                     "Blood Reading added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
@@ -103,12 +105,11 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
         DialogBoxes(reading);
     }
     public void DialogBoxes(float reading){
-
         //Load user preferences
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
-        float minRange = Float.parseFloat(sharedPref.getString("minRange", DEFAULTMINRANGE));
-        float maxRange = Float.parseFloat(sharedPref.getString("maxRange", DEFAULTMAXRANGE));
-        int corrRatio = sharedPref.getInt("corrRatio", DEFAULTCORRRATIO);
+        float minRange = Float.parseFloat(sharedPref.getString("minRange", Blood.DEFAULTMINRANGE));
+        float maxRange = Float.parseFloat(sharedPref.getString("maxRange", Blood.DEFAULTMAXRANGE));
+        int corrRatio = sharedPref.getInt("corrRatio", Insulin.DEFAULTCORRRATIO);
 
         //IF BS is High
         if(reading>maxRange) {
@@ -120,6 +121,8 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
             builderHigh.setMessage("Your Blood Sugar was high. According to your correction ratio you should inject " + correctionUnits +
                     " correction units. Do you want to record your correction insulin units");
             builderHigh.setCancelable(true);
+            builderHigh.setIcon(R.drawable.dialogicon);
+            builderHigh.setTitle("Correction Units");
             builderHigh.setPositiveButton(
                     "Yes",
                     new DialogInterface.OnClickListener() {
@@ -136,8 +139,6 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
                             dialog.cancel();
                         }
                     });
-            builderHigh.setIcon(R.drawable.dialogicon);
-            builderHigh.setTitle("Correction Units");
             AlertDialog alert11 = builderHigh.create();
             alert11.show();
         }

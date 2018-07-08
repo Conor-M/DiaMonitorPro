@@ -13,6 +13,8 @@ public class Insulin{
     public static final String KEY_INSULINID = "InsulinId";
     public static final String KEY_UNITS = "Units";
     public static final String KEY_TIME = "Time";
+    public static final int DEFAULTCORRRATIO = 2;
+    public static final int DEFAULTCARBRATIO = 5;
 
     // Class Variables for storing DB Columns
     private int ID;
