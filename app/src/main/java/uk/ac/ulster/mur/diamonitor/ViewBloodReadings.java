@@ -22,6 +22,8 @@ public class ViewBloodReadings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("View Blood Readings");
+
         setContentView(R.layout.activity_view_blood_readings);
         // Create connection to SQLite Database
         myDBHandler = new MyDBHandler(this, null, null, 1);

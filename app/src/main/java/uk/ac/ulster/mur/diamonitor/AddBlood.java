@@ -44,6 +44,8 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Add Blood Reading");
+
         setContentView(R.layout.activity_add_blood);
         dbHandler = new MyDBHandler(this, null, null, 2);
         bloodReadingET = findViewById(R.id.BloodReadingEditText);

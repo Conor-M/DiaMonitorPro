@@ -28,6 +28,7 @@ public class AddInsulin extends AppCompatActivity implements DatePickerDialog.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Add Insulin Record");
         setContentView(R.layout.activity_add_insulin);
         InsulinUnitsET = findViewById(R.id.InsulinReadingEditText);
         dbHandler = new MyDBHandler(this, null, null, 1);

@@ -12,6 +12,8 @@ public class Search extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Search Food Database");
+
         setContentView(R.layout.activity_search);
         //Sets image from resources
         ImageView iv = (ImageView) findViewById(R.id.imageView);

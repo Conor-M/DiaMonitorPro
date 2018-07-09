@@ -15,10 +15,11 @@ public class UserSettings extends AppCompatActivity {
 
     EditText etCorrectionRatio, etCarbRatio, etMaxRange, etMinRange;
     TextView tvTest;
-    //Default Values set for each
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Set User Settings");
+
         setContentView(R.layout.activity_user_settings);
         etCorrectionRatio = (EditText) findViewById(R.id.etCorrectionRatio);
         etCarbRatio = (EditText) findViewById(R.id.etCarbRatio);
@@ -39,7 +40,10 @@ public class UserSettings extends AppCompatActivity {
             // Setting Dialog Title
             alertLowDialog.setTitle("Important");
             // Setting Dialog Message
-            alertLowDialog.setMessage("Your blood sugar was  which is below your optimal range. You should treat this hypo with 30 grams of carbohydrates!");
+            alertLowDialog.setMessage("The information given in this app is not to be confused with medical advice " +
+                    "and its function is to assist the user with recording diabetes treatment." +
+                    " Users must use caution to only use treatment that is consistent" +
+                    " with their own medical advice given by their physician or GP");
             // Setting Icon to Dialog
             alertLowDialog.setIcon(R.drawable.warningicon);
             // Showing Alert Message

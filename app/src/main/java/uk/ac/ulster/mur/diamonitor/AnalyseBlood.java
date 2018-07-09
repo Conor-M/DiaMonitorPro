@@ -36,6 +36,7 @@ public class AnalyseBlood extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Analyse Blood Readings");
         setContentView(R.layout.activity_analyse_blood);
         myDBHandler = new MyDBHandler(this, null, null, 1);
         //Get All Blood Sugars records

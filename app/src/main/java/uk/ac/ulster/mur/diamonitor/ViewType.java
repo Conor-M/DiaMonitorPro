@@ -12,6 +12,8 @@ public class ViewType extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("View Records");
+
         setContentView(R.layout.activity_view_type);
         //Set onClickListeners
         btnViewBloodReadings = findViewById(R.id.btnViewBloodReadings);

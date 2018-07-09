@@ -32,6 +32,7 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Add Carb Record");
         setContentView(R.layout.activity_add_carbs);
         carbReadingET = findViewById(R.id.carbReadingEditText);
         dbHandler = new MyDBHandler(this, null, null, 1);

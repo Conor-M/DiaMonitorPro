@@ -20,6 +20,8 @@ public class ViewCarbRecords extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("View Carb Records");
+
         setContentView(R.layout.activity_view_carb_records);
         // Create connection to SQLite Database
         myDBHandler = new MyDBHandler(this, null, null, 1);

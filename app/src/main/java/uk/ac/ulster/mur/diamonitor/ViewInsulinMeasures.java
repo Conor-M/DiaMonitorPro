@@ -20,6 +20,8 @@ public class ViewInsulinMeasures extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("View Insulin Records");
+
         setContentView(R.layout.activity_view_insulin_measures);
         myDBHandler = new MyDBHandler(this, null, null, 1);
         //Reference Insulin List
