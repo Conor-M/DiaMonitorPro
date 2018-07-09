@@ -6,4 +6,8 @@
     <string name="analyse_blood_readings">Analyse Blood Readings</string>
     <string name="user_settings">User Settings</string>
     <string name="blood_reading">Blood Reading</string>
+
+    <string name="title_activity_splash">splash</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

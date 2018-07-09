@@ -21,59 +21,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Base.AppTheme" >
+        android:theme="@style/Base.AppTheme.Launcher" >
         <activity
             android:name="uk.ac.ulster.mur.diamonitor.MainActivity"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AddBlood"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AddInsulin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AddCarbs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.UserSettings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewBloodReadings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewCarbRecords"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.ViewType"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.SearchResult"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.Search"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.AnalyseBlood"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="uk.ac.ulster.mur.diamonitor.splash"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.AddBlood"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.AddInsulin"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.AddCarbs"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.UserSettings"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.ViewBloodReadings"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.ViewCarbRecords"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.ViewType"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.SearchResult"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.Search"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="uk.ac.ulster.mur.diamonitor.AnalyseBlood"
-            android:screenOrientation="portrait" >
         </activity>
     </application>
 

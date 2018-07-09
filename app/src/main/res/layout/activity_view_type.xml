@@ -35,8 +35,7 @@
             android:layout_row="0"
             android:backgroundTint="@android:color/holo_blue_light"
             android:text="View Carbs"
-            android:textColor="@android:color/background_light"
-            android:textStyle="bold" />
+            android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/btnViewInsulin"

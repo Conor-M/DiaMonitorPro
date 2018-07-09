@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\74752ce61c330c3227bc88ca7f8dd50f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\0379e12311df2a30d64db7fa3595b29b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-v13:27.1.1] C:\Users\User\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\81cdf7c3883c752404ef569ef7920553\AndroidManifest.xml:17:1-22:12
@@ -23,20 +23,20 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\User\.gradle\c
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\a4f2c2e86165dd0d3ddaace1d8dfe51d\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\5525184e05bb923f203d6c648b1481fe\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\User\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\308d1eb5292c6a64683d66b8f6ba257b\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
-INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
 	package
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-66:12
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:1-68:12
 		INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:2:11-69
@@ -49,7 +49,7 @@ ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:6
 	android:name
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:6:22-77
 application
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:8:5-64:19
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:8:5-66:19
 MERGED from [com.jjoe64:graphview:4.2.2] C:\Users\User\.gradle\caches\transforms-1\files-1.1\graphview-4.2.2.aar\05ae56f79533d9ae11c9481950ffeee3\AndroidManifest.xml:11:5-12:19
 MERGED from [com.jjoe64:graphview:4.2.2] C:\Users\User\.gradle\caches\transforms-1\files-1.1\graphview-4.2.2.aar\05ae56f79533d9ae11c9481950ffeee3\AndroidManifest.xml:11:5-12:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\User\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\61ebe48b3a915e40b01172e7f12de0bc\AndroidManifest.xml:9:5-20
@@ -69,89 +69,101 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\Us
 	android:allowBackup
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:16:9-45
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:16:9-54
 activity#uk.ac.ulster.mur.diamonitor.MainActivity
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:17:9-25:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:17:9-21:20
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:18:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:19:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:17:19-47
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:20:9-24:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:21:17-69
-	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:21:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:23:17-77
-	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:18:13-41
 activity#uk.ac.ulster.mur.diamonitor.AddBlood
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:26:9-28:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:22:9-24:52
+	android:screenOrientation
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:24:13-49
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:23:13-37
+activity#uk.ac.ulster.mur.diamonitor.AddInsulin
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:25:9-27:52
 	android:screenOrientation
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:27:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:26:19-43
-activity#uk.ac.ulster.mur.diamonitor.AddInsulin
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:29:9-31:20
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:26:13-39
+activity#uk.ac.ulster.mur.diamonitor.AddCarbs
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:28:9-30:52
 	android:screenOrientation
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:30:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:29:19-45
-activity#uk.ac.ulster.mur.diamonitor.AddCarbs
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:32:9-34:20
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:29:13-37
+activity#uk.ac.ulster.mur.diamonitor.UserSettings
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:31:9-33:51
 	android:screenOrientation
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:33:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:32:19-43
-activity#uk.ac.ulster.mur.diamonitor.UserSettings
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:35:9-38:20
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:32:13-41
+activity#uk.ac.ulster.mur.diamonitor.ViewBloodReadings
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:34:9-36:51
 	android:screenOrientation
 		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:36:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:35:19-47
-activity#uk.ac.ulster.mur.diamonitor.ViewBloodReadings
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:40:9-42:20
-	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:41:13-49
-	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:40:19-52
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:35:13-46
 activity#uk.ac.ulster.mur.diamonitor.ViewInsulinMeasures
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:43:9-45:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:37:9-39:51
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:44:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:39:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:43:19-54
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:38:13-48
 activity#uk.ac.ulster.mur.diamonitor.ViewCarbRecords
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:48:9-50:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:40:9-42:51
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:49:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:42:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:48:19-50
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:41:13-44
 activity#uk.ac.ulster.mur.diamonitor.ViewType
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:51:9-53:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:43:9-45:51
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:52:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:45:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:51:19-43
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:44:13-37
 activity#uk.ac.ulster.mur.diamonitor.SearchResult
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:54:9-56:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:46:9-48:51
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:55:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:48:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:54:19-47
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:47:13-41
 activity#uk.ac.ulster.mur.diamonitor.Search
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:58:9-60:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:49:9-51:52
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:59:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:51:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:58:19-41
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:50:13-35
 activity#uk.ac.ulster.mur.diamonitor.AnalyseBlood
-ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:61:9-63:20
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:52:9-54:52
 	android:screenOrientation
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:62:13-49
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:54:13-49
 	android:name
-		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:61:19-47
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:53:13-41
+activity#uk.ac.ulster.mur.diamonitor.splash
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:55:9-65:40
+	android:screenOrientation
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:60:13-49
+	android:label
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:58:13-58
+	android:configChanges
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:57:13-74
+	android:theme
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:59:13-51
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:56:13-35
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:61:13-65:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:62:17-69
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:62:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:64:17-77
+	android:name
+		ADDED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml:64:27-74
 uses-sdk
 INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\User\Downloads\DiaMonitor\app\src\main\AndroidManifest.xml

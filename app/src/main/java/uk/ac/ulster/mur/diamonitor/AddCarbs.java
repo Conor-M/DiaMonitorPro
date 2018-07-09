@@ -1,6 +1,7 @@
 package uk.ac.ulster.mur.diamonitor;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -23,7 +24,7 @@ import java.util.Calendar;
 
 public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener{
     private MyDBHandler dbHandler;
-    private EditText CarbReadingET;
+    private EditText carbReadingET;
     Button btnPick;
     int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
     int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
@@ -32,7 +33,7 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_carbs);
-        CarbReadingET = findViewById(R.id.carbReadingEditText);
+        carbReadingET = findViewById(R.id.carbReadingEditText);
         dbHandler = new MyDBHandler(this, null, null, 1);
         btnPick = (Button) findViewById(R.id.btnPick);
         btnPick.setOnClickListener(view -> {
@@ -45,8 +46,20 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
             datePickerDialog.show();
 
         });
-    }
+        carbReadingET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
 
+    }
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
     public void ShowDialog(int carbs){
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         int carbRatio = sharedPref.getInt("carbRatio", Insulin.DEFAULTCARBRATIO);
@@ -84,8 +97,8 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
     }
 
     public void addButtonClicked(View view){
-        int carbsET = Integer.valueOf(CarbReadingET.getText().toString());
-        if ("".equals(CarbReadingET.getText().toString().trim())){
+        int carbsET = Integer.valueOf(carbReadingET.getText().toString());
+        if ("".equals(carbReadingET.getText().toString().trim())){
             Toast.makeText(this, "You must enter the amount of carbs", Toast.LENGTH_LONG).show();
         }else {
             //Create new Carb Object
@@ -111,16 +124,12 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
                 Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
 
             //Clear Values from edittext for next entry
-            CarbReadingET.setText("");
+            carbReadingET.setText("");
             //Inform User of addition
             Toast.makeText(AddCarbs.this,
                     "Carbohydrates added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
 
-            //Hide Keyboard to ensure can access navigation buttons
-            InputMethodManager inputManager = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
+
         }
         ShowDialog(carbsET);
     }

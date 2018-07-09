@@ -1,6 +1,7 @@
 package uk.ac.ulster.mur.diamonitor;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -58,6 +59,14 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
             datePickerDialog.show();
 
         });
+        bloodReadingET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
     }
 
     public void addButtonClicked(View view){
@@ -96,13 +105,13 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
             //Inform user of Addition made
             Toast.makeText(AddBlood.this,
                     "Blood Reading added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
-            //Hides Keyboard after addition of record
-            InputMethodManager inputManager = (InputMethodManager)
-                    getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
+
         }
         DialogBoxes(reading);
+    }
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
     public void DialogBoxes(float reading){
         //Load user preferences

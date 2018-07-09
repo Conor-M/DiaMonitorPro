@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MyDBHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Base_AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //SET BUTTON SETONCLICKLISTENERS
