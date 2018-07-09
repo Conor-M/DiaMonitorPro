@@ -1019,7 +1019,7 @@ int id transition_scene_layoutid_cache 0x7f0800d2
 int id transition_transform 0x7f0800d3
 int id tvAnalysisResult 0x7f0800d4
 int id tvSearchLabel 0x7f0800d5
-int id tvTest 0x7f0800d6
+int id tvShowSettings 0x7f0800d6
 int id uniform 0x7f0800d7
 int id up 0x7f0800d8
 int id useLogo 0x7f0800d9

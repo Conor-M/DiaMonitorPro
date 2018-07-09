@@ -58,6 +58,7 @@
         android:layout_above="@+id/button"
         android:layout_alignStart="@+id/button"
         android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="PickDateTimeClicked"
         android:text="Choose Time" />
 
 </RelativeLayout>

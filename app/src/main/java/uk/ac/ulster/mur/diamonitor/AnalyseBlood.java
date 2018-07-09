@@ -20,7 +20,15 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * Activity to Analyse the blood records in the Blood Database
+ *
+ *
+ * @author  Conor Murphy
+ * @version 1.0
+ * @since   2018-1-20
+ *
+ */
 public class AnalyseBlood extends AppCompatActivity {
 
     private MyDBHandler myDBHandler;
@@ -32,7 +40,12 @@ public class AnalyseBlood extends AppCompatActivity {
     private TextView tvAnalysisResult;
     long timeCurr = System.currentTimeMillis();
 
-
+    /**
+     * Creates the view of the activity when the activity is first started
+     * sets title of the activity to be displayed
+     *
+     * @param savedInstanceState Required as is an implementation of the onClick defined in xml for this activit
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +57,16 @@ public class AnalyseBlood extends AppCompatActivity {
         analyseBloods();
         DrawGraph();
     }
-    public void HomeButtonClicked(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
 
+
+    /**
+     * Analyses the Blood sugar readings for the last 2 weeks
+     * Finds the maximum/minimum blood sugar within this time period
+     * Finds the number of Low and High blood sugar readings at morning, evening and night within this time period
+     * Finds the Average reading of all the blood sugars within the time period
+     *
+     * Then outputs this information in a textview for the user to read
+     */
     public void analyseBloods(){
         int count = 0;
         float averageTotal = 0f;
@@ -134,6 +152,9 @@ public class AnalyseBlood extends AppCompatActivity {
         tvAnalysisResult.setText(analysisResults);
     }
 
+    /**
+     * Draws a graph of the average blood sugar for each of the last 7 days
+     */
     public void DrawGraph(){
         bloodList = myDBHandler.getAllBlood();
         Collections.reverse(bloodList);
@@ -189,13 +210,7 @@ public class AnalyseBlood extends AppCompatActivity {
                 averageTotal = 0;
             }
         }
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[0]);
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[1]);
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[2]);
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[3]);
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[4]);
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[5]);
-        Log.e("e", "AVERAGES!!!!!!!: " + averages[6]);
+
         GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(1, averages[6]),
@@ -206,17 +221,10 @@ public class AnalyseBlood extends AppCompatActivity {
                 new DataPoint(6, averages[1]),
                 new DataPoint(7, averages[0])
         });
-        series.setColor(Color.CYAN);
         series.setDrawDataPoints(true);
         series.setDataPointsRadius(8);
         series.setThickness(6);
-        series.setBackgroundColor(Color.WHITE);
-        graph.getViewport().setXAxisBoundsManual(false);
-        graph.setTitle("Daily Average Blood Sugar Reading");
-        graph.setTitleColor(Color.BLACK);
-        graph.setBackgroundColor(Color.argb(50, 13, 205, 255));
-        graph.getViewport().setMinX(1);
-        graph.getViewport().setMaxX(7);
+
 
         // custom paint to make a dotted line
         Paint paint = new Paint();
@@ -225,6 +233,12 @@ public class AnalyseBlood extends AppCompatActivity {
         paint.setPathEffect(new DashPathEffect(new float[]{8, 10}, 1));
         series.setCustomPaint(paint);
         graph.addSeries(series);
+        graph.getViewport().setXAxisBoundsManual(false);
+        graph.setTitle("Daily Average Blood Sugar Reading");
+        graph.setTitleColor(Color.BLACK);
+        graph.setBackgroundColor(Color.argb(50, 13, 205, 255));
+        graph.getViewport().setMinX(1);
+        graph.getViewport().setMaxX(7);
         // custom label formatter to show currency "EUR"
         graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
@@ -238,6 +252,14 @@ public class AnalyseBlood extends AppCompatActivity {
                 }
             }
         });
+    }
+    /**
+     * Brings the user back to the home activity on click of the button
+     * @param view Required as is an implementation of the onClick defined in xml for this activity
+     */
+    public void HomeButtonClicked(View view){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 }

@@ -3,15 +3,16 @@ package uk.ac.ulster.mur.diamonitor;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
+ * Splash Screen to welcome the user to the app
  */
 public class splash extends Activity {
     /**
@@ -107,11 +108,20 @@ public class splash extends Activity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
 
-        int secondsDelayed = 5;
+        int secondsDelayed = 3;
         new Handler().postDelayed(new Runnable() {
             public void run() {
+                SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
+                //set userSet to value held or zero as default value meaning userset hasnt been set
+                int userSet = sharedPref.getInt("userSet", 0);
+                if(userSet == 1) {
                 startActivity(new Intent(splash.this, MainActivity.class));
                 finish();
+                }else{
+                    startActivity(new Intent(splash.this, UserSettings.class));
+                    finish();
+                }
+
             }
         }, secondsDelayed * 1000);
     }

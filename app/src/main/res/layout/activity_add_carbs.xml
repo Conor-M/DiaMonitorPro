@@ -45,6 +45,7 @@
         android:layout_below="@+id/carbReadingEditText"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="PickDateTimeClicked"
         android:text="Choose Time" />
 
     <Button

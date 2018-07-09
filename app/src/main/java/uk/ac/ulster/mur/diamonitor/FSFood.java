@@ -1,6 +1,13 @@
 package uk.ac.ulster.mur.diamonitor;
-
-
+/**
+ * Model for the Foods retrieved by the FatSecret API
+ *
+ *
+ * @author  Conor Murphy
+ * @version 1.0
+ * @since   2018-1-20
+ *
+ */
 //Function of this class is to hold food entries as part of an FSFood Array for use with an array adapter to display`\
 public class FSFood {
     /** Name of the food, not including the brand name */
@@ -127,11 +134,15 @@ public class FSFood {
         this.brandName = brandName;
     }
 
+    /**
+     * @return String Returns a string which describes the food and food information for use by the array adapter on search
+     * results
+     */
     @Override
     public String toString() {
         String returnString ="";
-        if(type=="Brand"){
-            returnString += brandName;}
+        if(type=="Brand"){ // brandName is only set when type is set to "Brand"
+            returnString += brandName + " ";}
         returnString += name + " ";
         returnString += description + " ";
 

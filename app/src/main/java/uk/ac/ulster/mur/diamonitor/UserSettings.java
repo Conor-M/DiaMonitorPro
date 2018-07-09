@@ -10,11 +10,25 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * Activity to set the user setting for the app
+ *
+ *
+ * @author  Conor Murphy
+ * @version 1.0
+ * @since   2018-1-20
+ *
+ */
 public class UserSettings extends AppCompatActivity {
 
     EditText etCorrectionRatio, etCarbRatio, etMaxRange, etMinRange;
-    TextView tvTest;
+    TextView tvShowSettings;
+    /**
+     * Creates the view of the activity when the activity is first started
+     * sets title of the activity to be displayed
+     *
+     * @param savedInstanceState Required as is an implementation of the onClick defined in xml for this activit
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,16 +39,22 @@ public class UserSettings extends AppCompatActivity {
         etCarbRatio = (EditText) findViewById(R.id.etCarbRatio);
         etMaxRange = (EditText) findViewById(R.id.etMaxRange);
         etMinRange = (EditText) findViewById(R.id.etMinRange);
-        tvTest = (TextView) findViewById(R.id.tvTest);
+        tvShowSettings = (TextView) findViewById(R.id.tvShowSettings);
         InformUser();
         showData();
     }
 
+    /**
+     * Informs the user in a dialog box on first time viewing the app that this app is not
+     * medical advice and that they should only treat their diabetes in a manor consistent with
+     * there physician or GP advice
+     *
+     */
     public void InformUser(){
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         //set userSet to value held or zero as default value meaning userset hasnt been set
         int userSet = sharedPref.getInt("userSet", 0);
-        if(userSet == 1) {
+        if(userSet == 0) {
             AlertDialog alertLowDialog = new AlertDialog.Builder(
                     this).create();
             // Setting Dialog Title
@@ -50,7 +70,11 @@ public class UserSettings extends AppCompatActivity {
             alertLowDialog.show();
         }
     }
-
+    /**
+     * Brings the user back to the home activity on click of the button unless the user has not set the
+     * personal diabetes correction rates in which case the user is prompted to fill the data out before leaving
+     * @param view Required as is an implementation of the onClick defined in xml for this activity
+     */
     public void HomeButtonClicked(View view){
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         //set userSet to value held or zero as default value meaning userset hasnt been set
@@ -60,42 +84,60 @@ public class UserSettings extends AppCompatActivity {
             startActivity(i);
         }else{
             Toast.makeText(UserSettings.this,
-                    "You must Set all user settings before leaving this page" , Toast.LENGTH_LONG).show();
+                    "You must set all user settings before leaving this page" , Toast.LENGTH_LONG).show();
         }
 
 
     }
 
+    /**
+     * When save button is clicked the information provided by the user is saved in the UserSettings SharedPreference File
+     * if an edittext field is left empty the user is prompted to provide setting for all values
+     *
+     * @param view
+     */
     public void saveInfo(View view){
         int validationError;
         //create reference to Shared Preferences File
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         //Open for Editing
         SharedPreferences.Editor editor = sharedPref.edit();
-
-        if (("".equals(etMaxRange.getText().toString().trim()) || "".equals(etMaxRange.getText().toString().trim()) || "".equals(etCorrectionRatio.getText().toString().trim()) || "".equals(etCarbRatio.getText().toString().trim()) )){
+        //only updates the information if all fields have been filled otherwise prompt appears in Toast()
+        if (("".equals(etMaxRange.getText().toString().trim()) || "".equals(etMinRange.getText().toString().trim()) || "".equals(etCorrectionRatio.getText().toString().trim()) || "".equals(etCarbRatio.getText().toString().trim()) )){
             Toast.makeText(this, "You must fill in all values", Toast.LENGTH_LONG).show();
         }
         else{
         //Place Values in the shared preferences file
-            editor.putInt("carbRatio" ,Integer.valueOf(etCarbRatio.getText().toString()));
-            editor.putInt("corrRatio" ,Integer.valueOf(etCorrectionRatio.getText().toString()));
-            editor.putString("maxRange", etMaxRange.getText().toString());
-            editor.putString("minRange", etMinRange.getText().toString());
-            //Set UserSet to 1 show initialized settings
-            editor.putInt("userSet", 1);
-            //Save the file
-            editor.apply();
-            //Inform User that settings have been changed
-            Toast.makeText(UserSettings.this,
-                    "User setting changed" , Toast.LENGTH_LONG).show();
-            showData();
+            if(Float.valueOf(etMinRange.getText().toString())<Float.valueOf(etMaxRange.getText().toString())) {
+                if(!Integer.valueOf(etCarbRatio.getText().toString()).equals(0) && !Integer.valueOf(etCorrectionRatio.getText().toString()).equals(0)) {
+                    editor.putInt("carbRatio", Integer.valueOf(etCarbRatio.getText().toString()));
+                    editor.putInt("corrRatio", Integer.valueOf(etCorrectionRatio.getText().toString()));
+                    editor.putString("maxRange", etMaxRange.getText().toString());
+                    editor.putString("minRange", etMinRange.getText().toString());
+                    //Set UserSet to 1 show initialized settings
+                    editor.putInt("userSet", 1);
+                    //Save the file
+                    editor.apply();
+                    //Inform User that settings have been changed
+                    Toast.makeText(UserSettings.this,
+                            "User setting changed", Toast.LENGTH_LONG).show();
+                    showData();
+                }else
+                    Toast.makeText(UserSettings.this,
+                            "Correction Ratio or Carb Ratio Cannot be set to zero", Toast.LENGTH_LONG).show();
+
+            }else
+                Toast.makeText(UserSettings.this,
+                    "Minimum Range must be set to a value lower than Maximum Range", Toast.LENGTH_LONG).show();
         }
     }
 
 
-
-
+    /**
+     * Shows the currently set values for the carb ratio,correction ratio, minimum range and maximum range
+     * if these are not set the user is prompted to set these values
+     *
+     */
     public void showData(){
         //Display Current user setting as hints in editText box
 
@@ -106,21 +148,15 @@ public class UserSettings extends AppCompatActivity {
         if(userSet == 1) {
             int carbRatio = sharedPref.getInt("carbRatio", Insulin.DEFAULTCARBRATIO);
             int corrRatio = sharedPref.getInt("corrRatio", Insulin.DEFAULTCORRRATIO);
-            //double minRange = Double.parseDouble(sharedPref.getString("minRange", DEFAULTMINRANGE));
-            //double maxRange = Double.parseDouble(sharedPref.getString("maxRange", DEFAULTMAXRANGE));
             String minRange =sharedPref.getString("minRange", Blood.DEFAULTMINRANGE);
             String maxRange = sharedPref.getString("maxRange", Blood.DEFAULTMAXRANGE);
-            /*etCarbRatio.setHint(Integer.toString(carbRatio));
-            etCorrectionRatio.setHint(Integer.toString(corrRatio));
-            etMaxRange.setHint(Double.toString(maxRange));
-            etMinRange.setHint(Double.toString(minRange));*/
-            tvTest.setText("Carb: 1:" + carbRatio + " Corr: 1:" + corrRatio + " Min Range: " + minRange + " Max Range: " + maxRange);
+
+            tvShowSettings.setText("Carb: 1:" + carbRatio + " Corr: 1:" + corrRatio + " Min Range: " + minRange + " Max Range: " + maxRange);
         }
         else{
             Toast.makeText(UserSettings.this,
                     "Please Set User Settings" , Toast.LENGTH_LONG).show();
         }
-        long time = System.currentTimeMillis();
 
     }
 }

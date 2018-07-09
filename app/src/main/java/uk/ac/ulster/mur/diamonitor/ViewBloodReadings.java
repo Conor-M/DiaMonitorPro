@@ -12,13 +12,24 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-
+/**
+ * Activity to view blood records from the Bloods table in the database
+ *
+ *
+ * @author  Conor Murphy
+ * @version 1.0
+ * @since   2018-1-20
+ *
+ */
 public class ViewBloodReadings extends AppCompatActivity {
 
     private MyDBHandler myDBHandler;
     private ListView bloodListView;
-
+    /**
+     * Creates the view of the activity when the activity is first started
+     *
+     * @param savedInstanceState Required as is an implementation of the onClick defined in xml for this activit
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +56,15 @@ public class ViewBloodReadings extends AppCompatActivity {
         // Populate ListView with items from ArrayAdapter
         // Set an item click listener for ListView
                 this.bloodListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    /**
+                     * Takes the record and gets the records id and calls a dialog box that
+                     * asks the user if they want to delete the record it then
+                     * passes this to the deleteBlood method
+                     * @param parent
+                     * @param view
+                     * @param position
+                     * @param id
+                     */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
@@ -82,6 +102,10 @@ public class ViewBloodReadings extends AppCompatActivity {
 
 
     }
+    /**
+     * Brings the user back to the home activity on click of the button
+     * @param view Required as is an implementation of the onClick defined in xml for this activity
+     */
     public void HomeButtonClicked(View view){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);

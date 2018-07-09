@@ -35,6 +35,7 @@
         android:layout_alignStart="@+id/InsulinReadingEditText"
         android:layout_below="@+id/InsulinReadingEditText"
         android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="PickDateTimeClicked"
         android:text="Choose Time" />
 
     <Button

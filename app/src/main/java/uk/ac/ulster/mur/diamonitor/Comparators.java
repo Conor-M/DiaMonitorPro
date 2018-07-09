@@ -1,13 +1,10 @@
 package uk.ac.ulster.mur.diamonitor;
 
 import java.util.Comparator;
-
 /**
- * Comparators For sorting arraylists by time
+ * Comparators For sorting ArrayLists by time to sort ArrayLists of each Type into
+ * chronological order using the long epoch as the compared value
  */
-
-public class Comparators {
-}
 class BloodComparator implements Comparator<Blood> {
     @Override
     public int compare(Blood b1, Blood b2) {

@@ -3,11 +3,17 @@ package uk.ac.ulster.mur.diamonitor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * Model for the carbs table in the database
+ *
+ *
+ * @author  Conor Murphy
+ * @version 1.0
+ * @since   2018-1-20
+ *
+ */
 public class Carbs {
-
-    //TABLE NAME AND LOGCAT DEBUG TAG
-    public static final String TAG = Carbs.class.getSimpleName();
+    //Table Name
     public static final String TABLE = "Carbs";
 
     // Labels Table Columns names
@@ -33,7 +39,7 @@ public class Carbs {
         Date date = new Date(this.time);
         SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yy");
         String stringDate = format.format(date);
-        String objectString = "|You ate " + amount + "grams of carbs at " + stringDate + "|";
+        String objectString = " You ate " + amount + " grams of carbs at " + stringDate + " ";
         return objectString;
     }
 }

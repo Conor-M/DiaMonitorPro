@@ -2,11 +2,18 @@ package uk.ac.ulster.mur.diamonitor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * Model for the blood table in the database
+ *
+ *
+ * @author  Conor Murphy
+ * @version 1.0
+ * @since   2018-1-20
+ *
+ */
 public class Blood {
 
-    //TABLE NAME AND LOGCAT DEBUG TAG
-    public static final String TAG = Blood.class.getSimpleName();
+    //TABLE NAME
     public static final String TABLE = "Blood";
 
     // Labels Table Columns names
@@ -30,12 +37,13 @@ public class Blood {
     public long getTime(){return time;}
     public void setTime(long time){this.time = time;}
 
+    //To String Method for standard implementation of arrayAdapter
     @Override
     public String toString() {
         Date date = new Date(this.time);
         SimpleDateFormat format = new SimpleDateFormat("HH:mm dd-MM-yy");
         String stringDate = format.format(date);
-        String objectString = "|Blood Reading was " + reading + " at " + stringDate + "|";
+        String objectString = "Blood Reading was " + reading + " at " + stringDate + " ";
         return objectString;
     }
 }
