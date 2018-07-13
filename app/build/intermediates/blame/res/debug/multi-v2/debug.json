@@ -225,21 +225,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rCA_values-en-rCA.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-en-rCA\\values-en-rCA.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,209,309,417,501,601,716,793,869,951,1054,1158,1257,1362,1465,1569,1725,1825",
-                        "endColumns": "103,99,107,83,99,114,76,75,81,102,103,98,104,102,103,155,99,81",
-                        "endOffsets": "204,304,412,496,596,711,788,864,946,1049,1153,1252,1357,1460,1564,1720,1820,1902"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-tl_values-tl.arsc.flat",
             "map": [
                 {
@@ -267,6 +252,21 @@
                         "startOffsets": "2010",
                         "endColumns": "100",
                         "endOffsets": "2106"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rCA_values-en-rCA.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,417,501,601,716,793,869,951,1054,1158,1257,1362,1465,1569,1725,1825",
+                        "endColumns": "103,99,107,83,99,114,76,75,81,102,103,98,104,102,103,155,99,81",
+                        "endOffsets": "204,304,412,496,596,711,788,864,946,1049,1153,1252,1357,1460,1564,1720,1820,1902"
                     }
                 }
             ]
@@ -368,6 +368,37 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-large-v4_values-large-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-v17_values-v17.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-v17\\values-v17.xml",
+                    "from": {
+                        "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,228,456,614,764,936,1164,1406,1577,1751,1920,2193,2393,2597",
+                        "endLines": "4,8,11,14,17,21,25,28,31,34,38,41,45,49",
+                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12",
+                        "endOffsets": "223,451,609,759,931,1159,1401,1572,1746,1915,2188,2388,2592,2921"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-ru_values-ru.arsc.flat",
             "map": [
                 {
@@ -395,37 +426,6 @@
                         "startOffsets": "1973",
                         "endColumns": "100",
                         "endOffsets": "2069"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-v17_values-v17.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-v17\\values-v17.xml",
-                    "from": {
-                        "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,228,456,614,764,936,1164,1406,1577,1751,1920,2193,2393,2597",
-                        "endLines": "4,8,11,14,17,21,25,28,31,34,38,41,45,49",
-                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12",
-                        "endOffsets": "223,451,609,759,931,1159,1401,1572,1746,1915,2188,2388,2592,2921"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-large-v4_values-large-v4.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
                     }
                 }
             ]
@@ -576,38 +576,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rAU_values-en-rAU.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\492beb9c45b50ab5126c9d72e9d76e94\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "20",
-                        "startColumns": "4",
-                        "startOffsets": "1907",
-                        "endColumns": "100",
-                        "endOffsets": "2003"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,209,309,417,501,601,716,793,869,951,1054,1158,1257,1362,1465,1569,1725,1825",
-                        "endColumns": "103,99,107,83,99,114,76,75,81,102,103,98,104,102,103,155,99,81",
-                        "endOffsets": "204,304,412,496,596,711,788,864,946,1049,1153,1252,1357,1460,1564,1720,1820,1902"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-ms_values-ms.arsc.flat",
             "map": [
                 {
@@ -635,6 +603,38 @@
                         "startOffsets": "1945",
                         "endColumns": "100",
                         "endOffsets": "2041"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rAU_values-en-rAU.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\492beb9c45b50ab5126c9d72e9d76e94\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1907",
+                        "endColumns": "100",
+                        "endOffsets": "2003"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,417,501,601,716,793,869,951,1054,1158,1257,1362,1465,1569,1725,1825",
+                        "endColumns": "103,99,107,83,99,114,76,75,81,102,103,98,104,102,103,155,99,81",
+                        "endOffsets": "204,304,412,496,596,711,788,864,946,1049,1153,1252,1357,1460,1564,1720,1820,1902"
                     }
                 }
             ]
@@ -751,38 +751,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-pt_values-pt.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-pt\\values-pt.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,1904",
-                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
-                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,1984"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\492beb9c45b50ab5126c9d72e9d76e94\\res\\values-pt\\values-pt.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "20",
-                        "startColumns": "4",
-                        "startOffsets": "1989",
-                        "endColumns": "100",
-                        "endOffsets": "2085"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-hi_values-hi.arsc.flat",
             "map": [
                 {
@@ -810,6 +778,38 @@
                         "startOffsets": "105,211,308,418,504,606,728,805,883,973,1082,1185,1287,1397,1498,1613,1775,1876",
                         "endColumns": "105,96,109,85,101,121,76,77,89,108,102,101,109,100,114,161,100,79",
                         "endOffsets": "206,303,413,499,601,723,800,878,968,1077,1180,1282,1392,1493,1608,1770,1871,1951"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-pt_values-pt.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,225,331,438,527,628,746,829,909,996,1103,1215,1317,1425,1532,1642,1804,1904",
+                        "endColumns": "119,105,106,88,100,117,82,79,86,106,111,101,107,106,109,161,99,84",
+                        "endOffsets": "220,326,433,522,623,741,824,904,991,1098,1210,1312,1420,1527,1637,1799,1899,1984"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\492beb9c45b50ab5126c9d72e9d76e94\\res\\values-pt\\values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1989",
+                        "endColumns": "100",
+                        "endOffsets": "2085"
                     }
                 }
             ]
@@ -1007,6 +1007,21 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-port_values-port.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-lt_values-lt.arsc.flat",
             "map": [
                 {
@@ -1034,21 +1049,6 @@
                         "startOffsets": "105,221,322,435,522,631,752,834,915,1000,1109,1218,1318,1428,1532,1645,1821,1922",
                         "endColumns": "115,100,112,86,108,120,81,80,84,108,108,99,109,103,112,175,100,82",
                         "endOffsets": "216,317,430,517,626,747,829,910,995,1104,1213,1313,1423,1527,1640,1816,1917,2000"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\User\\Downloads\\DiaMonitor\\app\\build\\intermediates\\res\\merged\\debug\\values-port_values-port.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\0379e12311df2a30d64db7fa3595b29b\\res\\values-port\\values-port.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
                     }
                 }
             ]

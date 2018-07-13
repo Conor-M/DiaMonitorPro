@@ -802,10 +802,11 @@ int drawable notification_template_icon_low_bg 0x7f070075
 int drawable notification_tile_bg 0x7f070076
 int drawable notify_panel_notification_icon_bg 0x7f070077
 int drawable plate 0x7f070078
-int drawable splash_screen 0x7f070079
-int drawable tooltip_frame_dark 0x7f07007a
-int drawable tooltip_frame_light 0x7f07007b
-int drawable warningicon 0x7f07007c
+int drawable powered_by_fatsecret 0x7f070079
+int drawable splash_screen 0x7f07007a
+int drawable tooltip_frame_dark 0x7f07007b
+int drawable tooltip_frame_light 0x7f07007c
+int drawable warningicon 0x7f07007d
 int id ALT 0x7f080000
 int id BloodReadingEditText 0x7f080001
 int id CTRL 0x7f080002

@@ -12,10 +12,10 @@
         android:layout_height="300dp"
         android:layout_above="@+id/btnSearch"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="31dp"
         android:contentDescription="Plate Image"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/plate"
+        app:srcCompat="@drawable/search"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="86dp" />
 
@@ -71,4 +71,13 @@
         android:text="Back To Main"
         android:textColor="@android:color/background_light"
         tools:layout_editor_absoluteY="463dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        app:srcCompat="@drawable/powered_by_fatsecret" />
 </RelativeLayout>
