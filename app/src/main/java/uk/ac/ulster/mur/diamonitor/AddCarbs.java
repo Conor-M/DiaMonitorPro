@@ -32,8 +32,8 @@ import java.util.Calendar;
 public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener{
     private MyDBHandler dbHandler;
     private EditText carbReadingET;
-    int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
-    int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
+    private int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
+    private int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
 
     /**
      * Creates the view of the activity when the activity is first started
@@ -87,14 +87,13 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
      * @return void
      */
     public void addButtonClicked(View view){
-        int carbsET = Integer.valueOf(carbReadingET.getText().toString());
         if ("".equals(carbReadingET.getText().toString().trim())){
             Toast.makeText(this, "You must enter the amount of carbs", Toast.LENGTH_LONG).show();
         }else {
             //Create new Carb Object
             Carbs carbs = new Carbs();
-            //Set values of carb object to values of Edittext
-            carbs.setAmount(carbsET);
+            //Set values of carb object to values of Edit text
+            carbs.setAmount(Integer.valueOf(carbReadingET.getText().toString()));
             if(timeSet==1){
                 Calendar c = Calendar.getInstance();
                 c.set(Calendar.YEAR, yearFinal);
@@ -107,22 +106,26 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
                 carbs.setTime(System.currentTimeMillis());
             }
             //pass Carb object DbHandler to put values in database
-            //Add blood Object values to database fields
-            if(System.currentTimeMillis()+1>carbs.getTime()) { // checks if time is set in future +1 as the time can be set to now
+            // checks if time is set in future +1, one is added to the time as the time can be set to now
+            if(System.currentTimeMillis()+1>carbs.getTime()) {
                 dbHandler.addCarbs(carbs);
-                //Clear Values from edittext for next entry
-                carbReadingET.setText("");
+
+
                 //Inform User of addition
                 Toast.makeText(AddCarbs.this,
-                        "Carbohydrates added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
-
+                        "Carbohydrates added to Diary " +
+                                dbHandler.StringEpochToStringDate(String.valueOf(carbs.getTime())), Toast.LENGTH_LONG).show();
+                ShowDialog(Integer.valueOf(carbReadingET.getText().toString()));
+                //Clear Values from edittext for next entry
+                carbReadingET.setText("");
             }else
                 Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
 
 
 
+
         }
-        ShowDialog(carbsET);
+
     }
     /**
      * Shows the user how many units of insulin should be injected for the amount carb consumed
@@ -134,31 +137,35 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
         SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         int carbRatio = sharedPref.getInt("carbRatio", Insulin.DEFAULTCARBRATIO);
         int carbUnits = carbs;
-        carbUnits -= (carbUnits%carbRatio);//rounding reading to nearest unit
+        carbUnits -= (carbUnits%carbRatio);//finding the nearest carb amount divisible bt the carb ratio
         carbUnits = carbUnits/carbRatio;
-        AlertDialog.Builder builderCarbs = new AlertDialog.Builder(AddCarbs.this);
-        builderCarbs.setMessage("You have eaten " + carbs + " grams of carbohydrates and according to you carb ratio you should inject " + carbUnits + " Units for this if your blood sugars are in the optimal range. Do you want to record your correction insulin units");
-        builderCarbs.setCancelable(true);
-        builderCarbs.setPositiveButton(
-                "Yes",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Intent i = new Intent(AddCarbs.this, AddInsulin.class);
-                        startActivity(i);
-                        dialog.cancel();
-                    }
-                });
-        builderCarbs.setNegativeButton(
-                "No",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        builderCarbs.setIcon(R.drawable.dialogicon);
-        builderCarbs.setTitle("Carbohydrate Units");
-        AlertDialog alert11 = builderCarbs.create();
-        alert11.show();
+        if(carbUnits>0) {
+            AlertDialog.Builder builderCarbs = new AlertDialog.Builder(AddCarbs.this);
+            builderCarbs.setMessage("You have eaten " + carbs + " grams of carbohydrates and according to you " +
+                    "carb ratio you should inject " + carbUnits + " Units for this if your blood sugars are in the optimal range. " +
+                    "Do you want to record your correction insulin units");
+            builderCarbs.setCancelable(true);
+            builderCarbs.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent i = new Intent(AddCarbs.this, AddInsulin.class);
+                            startActivity(i);
+                            dialog.cancel();
+                        }
+                    });
+            builderCarbs.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            builderCarbs.setIcon(R.drawable.dialogicon);
+            builderCarbs.setTitle("Carbohydrate Units");
+            AlertDialog alert11 = builderCarbs.create();
+            alert11.show();
+        }
     }
     /**
      * Brings the user back to the home activity on click of the button
@@ -201,7 +208,8 @@ public class AddCarbs extends AppCompatActivity implements DatePickerDialog.OnDa
         Calendar c = Calendar.getInstance();
         hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE);
-        TimePickerDialog timePickerDialog = new TimePickerDialog(AddCarbs.this, AddCarbs.this, hour, minute, DateFormat.is24HourFormat(this));
+        TimePickerDialog timePickerDialog = new TimePickerDialog(AddCarbs.this,
+                AddCarbs.this, hour, minute, DateFormat.is24HourFormat(this));
         timePickerDialog.show();
     }
     /**

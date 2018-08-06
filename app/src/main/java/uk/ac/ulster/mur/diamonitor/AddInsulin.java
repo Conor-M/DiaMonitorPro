@@ -30,8 +30,8 @@ public class AddInsulin extends AppCompatActivity implements DatePickerDialog.On
     private MyDBHandler dbHandler;
     private EditText InsulinUnitsET;
     Button btnPick;
-    int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
-    int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
+    private int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
+    private int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
     /**
      * Creates the view of the activity when the activity is first started
      * sets title of the activity to be displayed
@@ -95,13 +95,16 @@ public class AddInsulin extends AppCompatActivity implements DatePickerDialog.On
             }
             //Pass Insulin object to DBHandler
             //Add blood Object values to database fields
-            if(System.currentTimeMillis()+1>insulin.getTime()) { // checks if time is set in future +1 as the time can be set to now
+            if(System.currentTimeMillis()+1>insulin.getTime()) { // checks if time is set in future +1 as
+                // the time can be set to now
                 dbHandler.addInsulin(insulin);
                 //Clear Insulin ET Fields for next entry
                 InsulinUnitsET.setText("");
                 //Inform User of addition
                 Toast.makeText(AddInsulin.this,
-                        "Insulin added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(insulin.getTime())), Toast.LENGTH_LONG).show();
+                        "Insulin added to Diary "
+                                + dbHandler.StringEpochToStringDate(String.valueOf(insulin.getTime())),
+                        Toast.LENGTH_LONG).show();
 
             }else {
                 Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
@@ -148,7 +151,8 @@ public class AddInsulin extends AppCompatActivity implements DatePickerDialog.On
         Calendar c = Calendar.getInstance();
         hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE);
-        TimePickerDialog timePickerDialog = new TimePickerDialog(AddInsulin.this, AddInsulin.this, hour, minute, DateFormat.is24HourFormat(this));
+        TimePickerDialog timePickerDialog = new TimePickerDialog(AddInsulin.this,
+                AddInsulin.this, hour, minute, DateFormat.is24HourFormat(this));
         timePickerDialog.show();
     }
     /**

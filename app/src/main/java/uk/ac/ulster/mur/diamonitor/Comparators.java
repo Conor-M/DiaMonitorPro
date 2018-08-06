@@ -8,6 +8,7 @@ import java.util.Comparator;
 class BloodComparator implements Comparator<Blood> {
     @Override
     public int compare(Blood b1, Blood b2) {
+
         return Long.compare(b2.getTime(), b1.getTime());
     }
 }

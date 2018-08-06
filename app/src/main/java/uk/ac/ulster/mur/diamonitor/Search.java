@@ -33,8 +33,8 @@ public class Search extends AppCompatActivity {
      * Brings the user back to the home activity on click of the button
      * @param view Required as is an implementation of the onClick defined in xml for this activity
      */
-    public void HomeButtonClicked(View view){
-        Intent i = new Intent(this, MainActivity.class);
+    public void CarbButtonClicked(View view){
+        Intent i = new Intent(this, AddCarbs.class);
         startActivity(i);
     }
 

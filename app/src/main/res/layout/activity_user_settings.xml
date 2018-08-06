@@ -9,10 +9,13 @@
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:columnCount="2"
         android:paddingEnd="15dp"
         android:paddingStart="30dp"
-        android:paddingTop="60dp">
+        android:paddingTop="60dp"
+        android:id="@+id/gridLayout">
 
 
         <TextView
@@ -85,6 +88,7 @@
             android:inputType="numberDecimal" />
 
         <Button
+            android:id="@+id/btnChangeUserSet"
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
             android:layout_gravity="fill_horizontal"
@@ -114,7 +118,18 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnHome"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="13dp"
-        android:layout_marginStart="25dp"
-        android:text="tvTest" />
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="25dp" />
+
+    <TextView
+        android:id="@+id/tvShowInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Please set these settings to you specific insulin ratios and please set the minimum and maximum ranges of your optimal blood sugars" />
+
 </RelativeLayout>

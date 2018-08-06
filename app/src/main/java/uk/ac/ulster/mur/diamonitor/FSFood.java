@@ -1,15 +1,7 @@
 package uk.ac.ulster.mur.diamonitor;
-/**
- * Model for the Foods retrieved by the FatSecret API
- *
- *
- * @author  Conor Murphy
- * @version 1.0
- * @since   2018-1-20
- *
- */
-//Function of this class is to hold food entries as part of an FSFood Array for use with an array adapter to display`\
-public class FSFood {
+
+//Function of this class is to hold food entries as part of an FSFood Array for use with an array adapter to display
+public class FSFood{
     /** Name of the food, not including the brand name */
     private String name;
     /** URL of this food item on http://www.fatsecret.com Fatsecret website */
@@ -44,23 +36,7 @@ public class FSFood {
         this.name = name;
     }
 
-    /**
-     * Returns the URL for the food
-     *
-     * @return		the URL for the food
-     */
-    public String getUrl() {
-        return url;
-    }
 
-    /**
-     * Sets the URL for the food
-     *
-     * @param		url the URL for the food
-     */
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     /**
      * Returns the type of the food
@@ -85,9 +61,6 @@ public class FSFood {
      *
      * @return		the unique food identifier
      */
-    public Long getId() {
-        return id;
-    }
 
     /**
      * Sets the unique food identifier
@@ -98,14 +71,7 @@ public class FSFood {
         this.id = id;
     }
 
-    /**
-     * Returns the short description of the food
-     *
-     * @return		the short description of the food
-     */
-    public String getDescription() {
-        return description;
-    }
+
 
     /**
      * Sets the short description of the food
@@ -114,15 +80,6 @@ public class FSFood {
      */
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    /**
-     * Returns the brand name of the food
-     *
-     * @return		the brand name of the food
-     */
-    public String getBrandName() {
-        return brandName;
     }
 
     /**

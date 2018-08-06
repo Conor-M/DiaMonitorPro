@@ -42,17 +42,6 @@ public class ViewType extends AppCompatActivity implements View.OnClickListener{
      * @param view Passes the button that is calling the onClick method as a view
      */
     public void onClick(View view) {
-        //onClickListener actions for each button
-        /*if (view ==findViewById(R.id.btnViewBloodReadings)){
-            Intent i = new Intent(this, ViewBloodReadings.class);
-            startActivity(i);
-        }else if (view ==findViewById(R.id.btnViewCarbs)){
-            Intent i = new Intent(this, ViewCarbRecords.class);
-            startActivity(i);
-        }else if (view ==findViewById(R.id.btnViewInsulin)){
-            Intent i = new Intent(this, ViewInsulinMeasures.class);
-            startActivity(i);
-        }*/
         switch (view.getId()) {
             case R.id.btnViewBloodReadings:
                 startActivity(new Intent(this, ViewBloodReadings.class));

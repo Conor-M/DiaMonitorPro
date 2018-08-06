@@ -52,7 +52,6 @@ public class SearchResult extends AppCompatActivity {
         String key = "5623ffedc11840e09e7e97b85bce9b79";
         //SECRET KEY FOR API
         String secret = "8d63996be6ef4f789f44decedbc44a2b";
-
         //Builds the request for the API
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         Listener listener = new Listener();
@@ -82,6 +81,7 @@ public class SearchResult extends AppCompatActivity {
                     thisFood.setBrandName(food.getBrandName());
                 fsFoodArrayList.add(thisFood);
             }
+            // lets the listview adapter know to update the list shown
             adapter.notifyDataSetChanged();
         }
     }
@@ -89,8 +89,8 @@ public class SearchResult extends AppCompatActivity {
      * Brings the user back to the home activity on click of the button
      * @param view Required as is an implementation of the onClick defined in xml for this activity
      */
-    public void HomeButtonClicked(View view){
-        Intent i = new Intent(this, MainActivity.class);
+    public void BackToSearchButtonClicked(View view){
+        Intent i = new Intent(this, Search.class);
         startActivity(i);
     }
 

@@ -32,7 +32,7 @@ public class UserSettings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Set User Settings");
+        setTitle("User Settings");
 
         setContentView(R.layout.activity_user_settings);
         etCorrectionRatio = (EditText) findViewById(R.id.etCorrectionRatio);
@@ -106,7 +106,7 @@ public class UserSettings extends AppCompatActivity {
         if (("".equals(etMaxRange.getText().toString().trim()) || "".equals(etMinRange.getText().toString().trim()) || "".equals(etCorrectionRatio.getText().toString().trim()) || "".equals(etCarbRatio.getText().toString().trim()) )){
             Toast.makeText(this, "You must fill in all values", Toast.LENGTH_LONG).show();
         }
-        else{
+        else
         //Place Values in the shared preferences file
             if(Float.valueOf(etMinRange.getText().toString())<Float.valueOf(etMaxRange.getText().toString())) {
                 if(!Integer.valueOf(etCarbRatio.getText().toString()).equals(0) && !Integer.valueOf(etCorrectionRatio.getText().toString()).equals(0)) {
@@ -129,7 +129,7 @@ public class UserSettings extends AppCompatActivity {
             }else
                 Toast.makeText(UserSettings.this,
                     "Minimum Range must be set to a value lower than Maximum Range", Toast.LENGTH_LONG).show();
-        }
+
     }
 
 

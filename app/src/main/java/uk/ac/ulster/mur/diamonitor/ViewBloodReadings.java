@@ -43,8 +43,7 @@ public class ViewBloodReadings extends AppCompatActivity {
         bloodListView = findViewById(R.id.listBloodReading);
         //Get All Blood Sugars records
         ArrayList<Blood> bloodList = myDBHandler.getAllBlood();
-        //Reverse array to put newest records at top of the list
-        Collections.reverse(bloodList);
+        //sorts the records by time recorded
         Collections.sort(bloodList, new BloodComparator());
 
 

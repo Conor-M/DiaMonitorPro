@@ -41,9 +41,8 @@ public class ViewCarbRecords extends AppCompatActivity {
         carbsListView = findViewById(R.id.listCarbs);
         //Get All Blood Sugars records
         ArrayList<Carbs> carbsList = myDBHandler.getAllCarbs();
-        //Reverse array to put newest records at top of the list
-        Collections.reverse(carbsList);
 
+        //sorts the records by time recorded
         Collections.sort(carbsList, new CarbsComparator());
 
         //apply ArrayList of carbs to ArrayAdapter to display in ListView

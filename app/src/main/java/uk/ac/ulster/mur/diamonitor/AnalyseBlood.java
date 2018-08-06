@@ -8,7 +8,6 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,12 +30,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class AnalyseBlood extends AppCompatActivity {
 
-    private MyDBHandler myDBHandler;
+    private MyDBHandler dbHandler;
     private ArrayList<Blood> bloodList;
-    private final int DEFAULTCORRRATIO = 2;
-    private final int DEFAULTCARBRATIO = 5;
-    private final String DEFAULTMAXRANGE = "10.0";
-    private final String DEFAULTMINRANGE = "4.0";
     private TextView tvAnalysisResult;
     long timeCurr = System.currentTimeMillis();
 
@@ -51,7 +46,7 @@ public class AnalyseBlood extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Analyse Blood Readings");
         setContentView(R.layout.activity_analyse_blood);
-        myDBHandler = new MyDBHandler(this, null, null, 1);
+        dbHandler = new MyDBHandler(this, null, null, 1);
         //Get All Blood Sugars records
         //Reverse array to put newest records at top of the list
         analyseBloods();
@@ -73,17 +68,17 @@ public class AnalyseBlood extends AppCompatActivity {
         float maxValue = 0.00f; //set low so first value takes maximum value
         float minValue = 100.00f; // set high so first value takes minimum value
         int highNight = 0, highEvening = 0, highMorning = 0, lowNight = 0, lowEvening = 0, lowMorning = 0;
-        bloodList = myDBHandler.getAllBlood();
+        bloodList = dbHandler.getAllBlood();
         Collections.reverse(bloodList);
         for(Blood bloodReading: bloodList){
                 //1209600 seconds = 2weeks
             long prev2WeeksTime = timeCurr - TimeUnit.DAYS.toMillis(14);;
             float br = bloodReading.getReading();
             long time = bloodReading.getTime();
-            int bsHour = myDBHandler.StringEpochToHour(time); //Extract the hour digit out of the time for period of the day
+            int bsHour = dbHandler.StringEpochToHour(time); //Extract the hour digit out of the time for period of the day
             SharedPreferences sharedPref = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
-            float minRange = Float.parseFloat(sharedPref.getString("minRange", DEFAULTMINRANGE));
-            float maxRange = Float.parseFloat(sharedPref.getString("maxRange", DEFAULTMAXRANGE));
+            float minRange = Float.parseFloat(sharedPref.getString("minRange", Blood.DEFAULTMINRANGE));
+            float maxRange = Float.parseFloat(sharedPref.getString("maxRange", Blood.DEFAULTMAXRANGE));
 
 
             if(time<prev2WeeksTime)//if the time of recording the blood sugar is greater than 2 weeks old
@@ -127,8 +122,8 @@ public class AnalyseBlood extends AppCompatActivity {
         average = Math.round(average*10)/10.0d;
         tvAnalysisResult = findViewById(R.id.tvAnalysisResult);
         String analysisResults =
-                "During the last 2 weeks your Average Blood Sugars has been " + average + " mmol/l\n"
-                +"You had  a maximum reading of " + maxValue + " mmol/l\n"
+                "During the last 2 weeks your average blood sugar reading has been " + average + " mmol/l\n"
+                +"You had a maximum reading of " + maxValue + " mmol/l\n"
                 +"You had a minimum reading of " + minValue + " mmol/l\n\n";
 
         if(highMorning>2){
@@ -156,15 +151,9 @@ public class AnalyseBlood extends AppCompatActivity {
      * Draws a graph of the average blood sugar for each of the last 7 days
      */
     public void DrawGraph(){
-        bloodList = myDBHandler.getAllBlood();
-        Collections.reverse(bloodList);
-
-        /*Collections.sort(bloodList, new Comparator<Blood>() {
-            @Override public int compare(Blood b1, Blood b2) {
-                return Long.compare(b1.getTime(),b2.getTime()); // Ascending
-            }
-
-        });*/
+        bloodList = dbHandler.getAllBlood();
+        //Collections.reverse(bloodList);
+        //sorts blood readings by date
         Collections.sort(bloodList, new BloodComparator());
 
         int countDays = 0;
@@ -173,44 +162,53 @@ public class AnalyseBlood extends AppCompatActivity {
         float[] averages = new float[7];
 
         for(Blood bloodReading: bloodList){
-
-            long time = bloodReading.getTime();
-            if(timeCurr<bloodReading.getTime())
-                continue;
-            Log.e("e", "Time: " + bloodReading.getTime());
-            long weekInMilli = TimeUnit.DAYS.toMillis(7);
-            long weekPrev = timeCurr - weekInMilli;
-
-            if(time<weekPrev)
+            //Stops the for loop after the 7th day
+            if(countDays==7)
                 break;
+            long time = bloodReading.getTime();
+
+            //finds the amount of time in millis of the amount of days averaged
             long start = TimeUnit.DAYS.toMillis(countDays);
-            Log.e("Start", "" +start);
             long startTime = timeCurr - start;
+
+
             long end = TimeUnit.DAYS.toMillis(countDays+1);
             long endTime = timeCurr - end;
 
-
+            //checks the reading was between the time of the last 2 days
             if(time<startTime && time>endTime){
+                //gets the reading
                 float reading = bloodReading.getReading();
-                Log.e("Blood", "Reading: " + reading);
-                Log.e("Average Count", "Av:" + averages[countDays] + "count: " + count);
-
+                //adds the reading to average
                 averageTotal += reading;
                 count++;
+                //finds the average of the readings
                 averages[countDays] = averageTotal/count;
-                Log.e("Average Count", "av total" + averageTotal + "Av:" + averages[countDays] + "count: " + count);
 
-                /*if(averages[countMin]==Float.NaN){
-                    averages[countMin] = 0.0f;}*/
+
 
             }else {
+                //In the case that the next reading is the next day this code
+                //will execute to add the reading to the next days average and then increase the daycount
+
+
+                count = 1;
+                averageTotal = 0;
+                float reading = bloodReading.getReading();
+
+                averageTotal += reading;
+                //if the reading is on the 7th day this prevents  array out of bounds
+                if(countDays<6) {
+                    averages[countDays + 1] = averageTotal / count;
+                }
+
                 //if(countMin)
                 countDays++;
-                count = 0;
-                averageTotal = 0;
+
             }
         }
 
+        // This is the code that plots the line for the graph
         GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(1, averages[6]),
@@ -226,7 +224,7 @@ public class AnalyseBlood extends AppCompatActivity {
         series.setThickness(6);
 
 
-        // custom paint to make a dotted line
+        // custom paint to make a dotted line and format the graph
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(5);
@@ -238,16 +236,18 @@ public class AnalyseBlood extends AppCompatActivity {
         graph.setTitleColor(Color.BLACK);
         graph.setBackgroundColor(Color.argb(50, 13, 205, 255));
         graph.getViewport().setMinX(1);
-        graph.getViewport().setMaxX(7);
+        graph.getViewport().setMaxX(8);
+        graph.getViewport().setXAxisBoundsManual(true);
         // custom label formatter to show currency "EUR"
         graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
             @Override
             public String formatLabel(double value, boolean isValueX) {
                 if (isValueX) {
                     // show normal x values
-                    return super.formatLabel(value, isValueX);
+                    return "Day " + super.formatLabel(value, isValueX);
+
                 } else {
-                    // show currency for y values
+                    // show mmol/l for y values
                     return super.formatLabel(value, isValueX) + " mmol/l";
                 }
             }

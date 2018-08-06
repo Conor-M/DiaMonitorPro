@@ -37,8 +37,8 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
 
     private MyDBHandler dbHandler;
     private EditText bloodReadingET;
-    int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
-    int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
+    private int day,month,year,hour,minute,timeSet; // current time/date for initialising calendar
+    private int dayFinal,monthFinal,yearFinal,hourFinal,minuteFinal;// set time/date
 
     /**
      * Creates the view of the activity when the activity is first started
@@ -81,8 +81,6 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
      * @return void
      */
     public void addButtonClicked(View view){
-        float reading = Float.valueOf(bloodReadingET.getText().toString());
-
         if ("".equals(bloodReadingET.getText().toString().trim())){
             Toast.makeText(this, "You must enter your blood sugar reading", Toast.LENGTH_LONG).show();
         }else {
@@ -90,7 +88,7 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
             Blood blood = new Blood();
             //Set values of blood record fields
             NumberFormat format = new DecimalFormat("##.#");
-            blood.setReading(Float.valueOf(format.format(reading)));
+            blood.setReading(Float.valueOf(format.format(Float.valueOf(bloodReadingET.getText().toString()))));
             //If User has set the time and date using datepicker set blood reading to that time
             //else set to current time
             if(timeSet==1){
@@ -107,12 +105,12 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
             //Add blood Object values to database fields
             if(System.currentTimeMillis()+1>(blood.getTime())) { // checks if time is set in future +1 as the time can be set to now
                 dbHandler.addBlood(blood);
-                //Clear Text Field for next entry
-                bloodReadingET.setText("");
                 //Inform user of Addition made
                 Toast.makeText(AddBlood.this,
                         "Blood Reading added to Diary " + dbHandler.StringEpochToStringDate(String.valueOf(blood.getTime())), Toast.LENGTH_LONG).show();
-                DialogBoxes(reading);
+                DialogBoxes(Float.valueOf(bloodReadingET.getText().toString()));
+                //Clear Text Field for next entry
+                bloodReadingET.setText("");
             }else {
                 Toast.makeText(this, "Your record cannot be set in the future", Toast.LENGTH_LONG).show();
             }
@@ -136,33 +134,39 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
         //IF BS is High
         if(reading>maxRange) {
             int correctionUnits;
-            correctionUnits = Math.round(reading-maxRange);//rounding reading to nearest full number to find how far above desired ideal range
-            correctionUnits -= (correctionUnits%corrRatio);//rounding reading to nearest unit
-            correctionUnits = correctionUnits/corrRatio; //finding units
-            AlertDialog.Builder builderHigh = new AlertDialog.Builder(AddBlood.this);
-            builderHigh.setMessage("Your Blood Sugar was high. According to your correction ratio you should inject " + correctionUnits +
-                    " correction units. Do you want to record your correction insulin units");
-            builderHigh.setCancelable(true);
-            builderHigh.setIcon(R.drawable.dialogicon);
-            builderHigh.setTitle("Correction Units");
-            builderHigh.setPositiveButton(
-                    "Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Intent i = new Intent(AddBlood.this, AddInsulin.class);
-                            startActivity(i);
-                            dialog.cancel();
-                        }
-                    });
-            builderHigh.setNegativeButton(
-                    "No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert11 = builderHigh.create();
-            alert11.show();
+            //rounding reading to nearest full number to find how far above desired ideal range
+            correctionUnits = Math.round(reading-maxRange);
+            //rounding reading to nearest unit
+            correctionUnits -= (correctionUnits%corrRatio);
+            //calculating units to be injected
+            correctionUnits = correctionUnits/corrRatio;
+            if(correctionUnits>0) {
+                AlertDialog.Builder builderHigh = new AlertDialog.Builder(AddBlood.this);
+                builderHigh.setMessage("Your Blood Sugar was high. According to your correction ratio you should inject "
+                        + correctionUnits +
+                        " correction units. Do you want to record your correction insulin units");
+                builderHigh.setCancelable(true);
+                builderHigh.setIcon(R.drawable.dialogicon);
+                builderHigh.setTitle("Correction Units");
+                builderHigh.setPositiveButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent i = new Intent(AddBlood.this, AddInsulin.class);
+                                startActivity(i);
+                                dialog.cancel();
+                            }
+                        });
+                builderHigh.setNegativeButton(
+                        "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert11 = builderHigh.create();
+                alert11.show();
+            }
         }
 
         //IF BS is Low
@@ -172,7 +176,8 @@ public class AddBlood extends AppCompatActivity implements DatePickerDialog.OnDa
             // Setting Dialog Title
             alertLowDialog.setTitle("Low Blood Sugar");
             // Setting Dialog Message
-            alertLowDialog.setMessage("Your blood sugar was " + reading + " which is below your optimal range. You should treat this hypo with 30 grams of carbohydrates!");
+            alertLowDialog.setMessage("Your blood sugar was " + reading
+                    + " which is below your optimal range. You should treat this hypo with 30 grams of carbohydrates!");
             // Setting Icon to Dialog
             alertLowDialog.setIcon(R.drawable.warningicon);
             // Showing Alert Message
